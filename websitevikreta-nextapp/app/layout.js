@@ -1,8 +1,10 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import '../styles/main.scss';
+import  '../styles/main.scss';
 
 
+import Nav from "../components/navbar/Nav";
+import DotRing from '../components/cursor/DotRing'; 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,10 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <link rel="icon" href="/favicon.png" type="image/x-icon" />
-      </head>
-      <body className={inter.className}>{children}
         
+      </head>
+      <body className={inter.className}>
+        <Nav />
+        {children}
+        <DotRing />
       </body>
     </html>
   );
