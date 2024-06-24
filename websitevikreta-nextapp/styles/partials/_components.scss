@@ -24,7 +24,7 @@
    .logo {
       @include flex-center(10px);
 
-      img {
+      svg {                        //chaged style element as we have svg compnent in next
          max-height: 28px;
          width: auto;
       }

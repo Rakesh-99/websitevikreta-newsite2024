@@ -1,9 +1,9 @@
-// components/navbar/Nav.js
+
 "use client";
 import Link from "next/link";
 //import { useNavigation } from 'next/navigation'; // Use next/navigation instead of next/router
 import NavbarCTA from "./NavbarCTA";
-import LogoIcon from "../../assets/LogoIcon.svg";
+import LogoIcon from "../../assets/LogoIcon.jsx";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 
@@ -33,7 +33,7 @@ const Nav = () => {
           <div className="top-nav-wrapper">
             <Link href="/">
               <div className="logo" onClick={scrollUp}>
-                <img src={LogoIcon} alt="Website Vikreta Logo" /> <h1><span>Website</span>Vikreta</h1>
+              <LogoIcon className="img" /> <h1><span>Website</span>Vikreta</h1>
               </div>
             </Link>
           </div>
