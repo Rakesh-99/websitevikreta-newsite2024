@@ -138,7 +138,7 @@ body.navbar-cta-show .navbar-cta {
       cursor: pointer;
    }
 
-   &:has(.close.hide) {
+   &:has(.close .hide) {
       top: -25% !important;
    }
 }

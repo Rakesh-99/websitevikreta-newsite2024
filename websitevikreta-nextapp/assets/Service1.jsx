@@ -1,3 +1,6 @@
+import React from 'react';
+
+const Service1 = () => (
 <svg width="200" height="248" viewBox="0 0 200 248" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.1" d="M17.2104 0L199.602 105.306L199.576 247.481L17.1838 142.176L17.2104 0Z" fill="url(#paint0_linear)"/>
 <path opacity="0.2" d="M17.2103 0L199.363 105.173V124.457L17.2103 19.2839V0Z" fill="url(#paint1_linear)"/>
@@ -49,3 +52,6 @@
 </linearGradient>
 </defs>
 </svg>
+);
+
+export default Service1;

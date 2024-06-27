@@ -1,11 +1,12 @@
 // components/NavbarCTA.js
 "use client";
 
-import Link from 'next/link'; // Import Link from Next.js for client-side navigation
+import Link from 'next/link'; 
 import { useState } from 'react';
 
 const NavbarCTA = () => {
   const [isNavbarCTAVisible, setIsNavbarCTAVisible] = useState(true);
+
 
   return (
     <div className={`navbar-cta ${isNavbarCTAVisible ? 'show' : 'hide'}`}>
@@ -13,7 +14,7 @@ const NavbarCTA = () => {
         <div className="text">
           Just a friendly reminder. Your brand will die without a good website. ☠️
         </div>
-        <Link href="/contact" passHref
+        <Link href="/contactus" passHref
            className="link" onClick={() => setIsNavbarCTAVisible(false)}>
             <span className="link-text">Help us fix</span>
             <span className="link-icon">

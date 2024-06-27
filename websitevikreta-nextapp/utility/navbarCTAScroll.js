@@ -9,6 +9,5 @@ export const navbarCTAScroll = () => {
       if (currentScroll > 1000) {
          body.classList.add("navbar-cta-show");
       }
-
-   })
+      })
 }

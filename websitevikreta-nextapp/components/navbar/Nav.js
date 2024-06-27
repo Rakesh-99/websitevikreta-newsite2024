@@ -33,7 +33,7 @@ const Nav = () => {
           <div className="top-nav-wrapper">
             <Link href="/">
               <div className="logo" onClick={scrollUp}>
-              <LogoIcon className="img" /> <h1><span>Website</span>Vikreta</h1>
+              <LogoIcon  /> <h1><span>Website</span>Vikreta</h1>
               </div>
             </Link>
           </div>
@@ -44,7 +44,7 @@ const Nav = () => {
           <div className="wrapper">
             <ul className="nav-list">
               <li className="nav-item" onClick={handleHomeClick}><Link href="/">Home</Link></li>
-              <li className="nav-item" onClick={unCheck}><Link href="/#aboutUs">About Us</Link></li>
+              <li className="nav-item" onClick={unCheck}><Link href="/#aboutus">About Us</Link></li>
               <li className="nav-item" onClick={unCheck}><Link href="/#ourwork">Our Services</Link></li>
               <li className="nav-item" onClick={unCheck}><Link href="/detailedwork">Our Work</Link></li>
               <li className="nav-item" onClick={unCheck}><Link href="/contactus">Contact Us</Link></li>
