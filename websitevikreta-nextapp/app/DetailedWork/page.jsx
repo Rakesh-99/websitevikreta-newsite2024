@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { pageAnimation, smoothFade, frameParentIvert, frameAnimationIvert } from "../../utility/animation";
 import { workData } from "../../json/ourWorkData"; // Verify the path here
+import Image from 'next/image';
+
 
 const DetailedWork = () => {
    const filters = [
@@ -79,7 +81,7 @@ const DetailedWork = () => {
                         initial="hidden"
                         animate="show"
                      >
-                        <img src={project.thumbnail} alt={project.title} />
+                        <Image src={project.thumbnail} alt={project.title} />
                         <div className="content">
                            <ul className="category">
                               {project.category.map((el, index) => (
