@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 // import type { LottiePlayer } from "lottie-web";
 
 export default function NotFound() {
-   const ref = useRef < HTMLDivElement > (null);
+   // const ref = useRef < HTMLDivElement > (null);
    // const [lottie, setLottie] = useState<LottiePlayer | null>(null);
 
    // useEffect(() => {
