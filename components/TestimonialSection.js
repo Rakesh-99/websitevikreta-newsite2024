@@ -57,31 +57,33 @@ const TestimonialSection = () => {
                <button className="prev slider-btn" id="test-prev" onClick={() => gotoPrev()}><i class="bi bi-chevron-left"></i></button>
                {/* slider */}
                <Slider {...settings} className="testimonial-slider" ref={customeSlider}>
-                  {testimonials.map(test =>
-                     <div className="card">
-                        <Quote alt="quote svg" className="quote" />
- 
-                        <p className="review">{test.review}</p>
+                  {testimonials.map((test, index) =>
+                     <>
+                        <div className="card" key={index}>
+                           <Quote alt="quote svg" className="quote" />
 
-                        <div className="group">
-                           <div className="user">
-                              {test.image !== "" &&
-                                 <Image src={test.image} alt="" />
-                              }
-                              <div className="text">
-                                 <p className="name">{test.userName}</p>
-                                 <p className="des">{test.userDes}</p>
+                           <p className="review">{test.review}</p>
+
+                           <div className="group">
+                              <div className="user">
+                                 {test.image !== "" &&
+                                    <Image src={test.image} alt="" />
+                                 }
+                                 <div className="text">
+                                    <p className="name">{test.userName}</p>
+                                    <p className="des">{test.userDes}</p>
+                                 </div>
+                              </div>
+                              <div className="ratings">
+                                 <i className="bi bi-star-fill"></i>
+                                 <i className="bi bi-star-fill"></i>
+                                 <i className="bi bi-star-fill"></i>
+                                 <i className="bi bi-star-fill"></i>
+                                 <i className="bi bi-star-fill"></i>
                               </div>
                            </div>
-                           <div className="ratings">
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                              <i className="bi bi-star-fill"></i>
-                           </div>
                         </div>
-                     </div>
+                     </>
                   )}
                </Slider>
 

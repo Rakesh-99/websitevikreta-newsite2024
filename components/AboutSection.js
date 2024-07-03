@@ -1,5 +1,6 @@
 import NumberImg from "../assets/numbers-svg.svg";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 const AboutSection = () => {
    const [offset, setOffset] = useState(0);
@@ -73,25 +74,45 @@ const AboutSection = () => {
    }
 
    return (
-      <section className="about-us" id={"aboutUs"}>
+      <section className="about-us" id={"aboutus"}>
          <div className="numbers">
             <div className="card">
-               <img src={NumberImg} alt="" className="image" />
+               <Image
+                  src={NumberImg}
+                  alt=""
+                  className="image"
+                  layout="responsive"
+               />
                <h1 className="number">{projectsCompleted}</h1>
                <p className="text">Projects Completed</p>
             </div>
             <div className="card">
-               <img src={NumberImg} alt="" className="image" />
+               <Image
+                  src={NumberImg}
+                  alt=""
+                  className="image"
+                  layout="responsive"
+               />
                <h1 className="number">{webProjects}</h1>
                <p className="text">Web Projects</p>
             </div>
             <div className="card">
-               <img src={NumberImg} alt="" className="image" />
+               <Image
+                  src={NumberImg}
+                  alt=""
+                  className="image"
+                  layout="responsive"
+               />
                <h1 className="number">{clientsServed}</h1>
                <p className="text">Clients Served</p>
             </div>
             <div className="card">
-               <img src={NumberImg} alt="" className="image" />
+               <Image
+                  src={NumberImg}
+                  alt=""
+                  className="image"
+                  layout="responsive"
+               />
                <h1 className="number">{onGoingProjects}</h1>
                <p className="text">Ongoing Projects</p>
             </div>
@@ -119,7 +140,7 @@ const AboutSection = () => {
                </div>
                <Link href={"/work"} className="awesome-link"> Explore Our Work
                </Link>
-               
+
             </div>
          </div>
       </section>

@@ -29,7 +29,7 @@ const Footer = () => {
               </span>
               <span className="link">
                 <i className="icon bi bi-chevron-right"></i>
-                <Link href="#aboutUs">About Us</Link>
+                <Link href="#aboutus">About Us</Link>
               </span>
               <span className="link">
                 <i className="icon bi bi-chevron-right"></i>
