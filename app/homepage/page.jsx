@@ -2,13 +2,13 @@
 "use client"
 import { useEffect } from "react";
 
-import {  motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Head from "next/head";
 import { pageAnimation, frameParentIvert, frameAnimationIvert, fade } from "../../utility/animation";
 import HeroSection from "../../components/HeroSection";
 import AboutSection from "../../components/AboutSection";
 import ServicesSection from "../../components/ServicesSection";
- import FaqSection from "../../components/FaqSection";
+import FaqSection from "../../components/FaqSection";
 import TestimonialSection from "../../components/TestimonialSection";
 import HireUsSection from "../../components/HireUsSection";
 
@@ -31,13 +31,11 @@ const HomePage = () => {
             </motion.div>
             <motion.div variants={fade}>
                <HeroSection />
-                <AboutSection /> 
-                <ServicesSection />
+               <AboutSection />
+               <ServicesSection />
                <FaqSection />
-                <TestimonialSection />
-               <HireUsSection />   
-         
-
+               <TestimonialSection />
+               <HireUsSection />
             </motion.div>
          </motion.div>
       </>
