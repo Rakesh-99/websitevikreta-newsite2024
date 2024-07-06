@@ -43,7 +43,7 @@ const HeroSection = () => {
                </ul>
 
                <div className="button-group" >
-                  <Link href={"/contact"} className="awesome-link">Get a Quote</Link>
+                  <Link href={"/contactus"} className="awesome-link">Get a Quote</Link>
                   <Link href={"/#aboutus"} className="awesome-link">Learn More</Link>
                </div>
             </div>
