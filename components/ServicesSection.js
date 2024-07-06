@@ -73,7 +73,7 @@ const ServicesSection = () => {
             </div>
 
             <div className="button-group">
-               <Link href="/ourwork" passHref>
+               <Link href="/detailedwork" passHref>
                   <p className="normal-btn primary">View Our Work</p>
                </Link>
                <Link href="/contactus" passHref>

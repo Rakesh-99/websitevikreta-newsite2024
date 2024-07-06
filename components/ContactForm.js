@@ -128,7 +128,7 @@ const ContactForm = () => {
                   value={mobile}
                   onChange={(phone) => setMobile(phone)}
                   inputClass="tel-input"
-                  placeholder="Your Contact Number"
+                  placeholder="Your Contact Number" 
                />
                <span className="error">{mobileErr != null ? mobileErr : ""}</span>
                {/* Hidden input field for mobile number */}
