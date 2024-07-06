@@ -105,18 +105,16 @@ body.navbar-cta-show .navbar-cta {
    transition: visibility 0s, opacity 0.35s ease-out;
    visibility: hidden;
    opacity: 0;
-   display: none;
  
    &.show {
      visibility: visible;
      opacity: 1;
-     display: block;
    }
  
    &.hide {
      visibility: hidden;
      opacity: 0;
-     display: none;
+     display:none
    }
  
    .container {
@@ -151,7 +149,6 @@ body.navbar-cta-show .navbar-cta {
      cursor: pointer;
    }
  }
- 
  
 // -----------------------------------------
 // Preload
