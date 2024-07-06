@@ -65,3 +65,63 @@ img {
 @import "./partials/responsive";
 
 
+// Specific styles for react-phone-input-2 to match form-control
+.react-tel-input {
+   .form-control {
+      @include dark-color-bg(dark);
+      color: $light;
+      border: 1px solid map-get($map: $black-colors, $key: light);
+      border-radius: 0;
+      padding-left: 50px;
+      width: 100%;
+      height: 3.5rem;
+   }
+
+   .flag-dropdown {
+      background-color: map-get($map: $black-colors, $key: dark);
+      border: 1px solid map-get($map: $black-colors, $key: light);
+      border-radius: 0;
+   }
+
+   .selected-flag {
+      background-color: map-get($map: $black-colors, $key: dark);
+      border: 1px solid map-get($map: $black-colors, $key: light);
+      border-radius: 0;
+
+      &:hover,
+      &:focus,
+      &:active {
+         background-color: map-get($map: $black-colors, $key: dark);
+      }
+   }
+
+   .form-control:focus {
+      border-color: rgba(255, 214, 0, 0.5);
+   }
+
+   .country-list {
+      background-color: map-get($map: $black-colors, $key: light);
+      color: $light;
+
+      .country {
+         &:hover {
+            background-color: map-get($map: $black-colors, $key: dark);
+         }
+
+         &.highlight {
+            background-color: map-get(
+               $map: $black-colors,
+               $key: dark
+            ) !important;
+         }
+         .dial-code {
+            color: $light;
+         }
+      }
+
+      .selected-flag {
+         background-color: map-get($map: $black-colors, $key: dark);
+         color: $light;
+      }
+   }
+}

@@ -344,65 +344,67 @@ textarea {
 }
 
 // Specific styles for react-phone-input-2 to match form-control
+
 .react-tel-input {
    .form-control {
-      @include dark-color-bg(dark);
-      color: $light;
-      border: 1px solid map-get($map: $black-colors, $key: light);
-      border-radius: 0;
-      padding-left: 50px;
-      width: 100%;
-      height: 3.5rem;
+      background-color: #232323 !important;
+      color: #e6e4e4 !important;
+      border: 1px solid #333 !important;
+      border-radius: 0 !important;
+      padding-left: 50px !important;
+      width: 100% !important;
+      height: 3.5rem !important;
+      outline: none !important;
+
+      &:focus {
+         outline: none !important;
+         border-color: rgba(255, 214, 0, 0.5) !important; 
+      }
    }
 
    .flag-dropdown {
-      background-color: map-get($map: $black-colors, $key: dark);
-      border: 1px solid map-get($map: $black-colors, $key: light);
-      border-radius: 0;
+      background-color: #333 !important;
+      border: 1px solid #272626 !important;
+      border-radius: 0 !important;
    }
 
    .selected-flag {
-      background-color: map-get($map: $black-colors, $key: dark);
-      border: 1px solid map-get($map: $black-colors, $key: light);
-      border-radius: 0;
+      background-color: #1e1d1d !important;
+      border: 1px solid #1e1d1d !important;
+      border-radius: 0 !important;
 
       &:hover,
       &:focus,
       &:active {
-         background-color: map-get($map: $black-colors, $key: dark);
+         background-color: #333 !important;
       }
    }
 
-   .form-control:focus {
-      border-color: rgba(255, 214, 0, 0.5);
-   }
-
    .country-list {
-      background-color: map-get($map: $black-colors, $key: light);
-      color: $light;
+      background-color: #333 !important;
+      color: #fff !important;
 
       .country {
          &:hover {
-            background-color: map-get($map: $black-colors, $key: dark);
+            background-color: #444 !important;
          }
 
          &.highlight {
-            background-color: map-get(
-               $map: $black-colors,
-               $key: dark
-            ) !important;
+            background-color: #444 !important;
          }
+
          .dial-code {
-            color: $light;
+            color: #fff !important;
          }
       }
 
       .selected-flag {
-         background-color: map-get($map: $black-colors, $key: dark);
-         color: $light;
+         background-color: #333 !important;
+         color: #fff !important;
       }
    }
 }
+
 
 // -----------------------------------------
 // Frame Animation

@@ -127,7 +127,7 @@ const ContactForm = () => {
                   country={countryCode}
                   value={mobile}
                   onChange={(phone) => setMobile(phone)}
-                  inputClass="react-tel-input"
+                  inputClass="tel-input"
                   placeholder="Your Contact Number"
                />
                <span className="error">{mobileErr != null ? mobileErr : ""}</span>

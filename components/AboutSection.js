@@ -138,7 +138,7 @@ const AboutSection = () => {
                      We believe in delivering solutions that meet customer needs, business objectives, and budget expectations.
                   </p>
                </div>
-               <Link href={"/work"} className="awesome-link"> Explore Our Work
+               <Link href={"/detailedwork"} className="awesome-link"> Explore Our Work
                </Link>
 
             </div>
