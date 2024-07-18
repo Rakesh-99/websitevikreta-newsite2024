@@ -24,7 +24,7 @@ const NavbarCTA = () => {
         </Link>
         <div className="close" onClick={() => setIsNavbarCTAVisible(false)}>
           <i className="bi bi-x-lg"></i>
-        </div>
+        </div> 
       </div>
     </div>
   );

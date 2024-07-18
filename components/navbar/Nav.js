@@ -46,7 +46,7 @@ const Nav = () => {
                      <li className="nav-item" onClick={handleHomeClick}><Link href="/">Home</Link></li>
                      <li className="nav-item" onClick={unCheck}><Link href="/#aboutus">About Us</Link></li>
                      <li className="nav-item" onClick={unCheck}><Link href="/#services">Our Services</Link></li>
-                     <li className="nav-item" onClick={unCheck}><Link href="/detailedwork">Our Work</Link></li>
+                     <li className="nav-item" onClick={unCheck}><Link href="/work">Our Work</Link></li>
                      <li className="nav-item" onClick={unCheck}><Link href="/contactus">Contact Us</Link></li>
                   </ul>
                   <ul className="social-icons">

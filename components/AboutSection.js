@@ -4,75 +4,76 @@ import Image from "next/image";
 import Link from "next/link";
 const AboutSection = () => {
    const [offset, setOffset] = useState(0);
-
+ 
    useEffect(() => {
-      const onScroll = () => setOffset(window.pageYOffset);
-      window.removeEventListener('scroll', onScroll);
-      window.addEventListener('scroll', onScroll, { passive: true });
-      return () => window.removeEventListener('scroll', onScroll);
+     const onScroll = () => setOffset(window.pageYOffset);
+     window.removeEventListener('scroll', onScroll);
+     window.addEventListener('scroll', onScroll, { passive: true });
+     return () => window.removeEventListener('scroll', onScroll);
    }, []);
-
+ 
    let totalProjects = 36;
    let totalWebProjects = 31;
    let totalClientsServed = 28;
    let totalOngoingProjects = 3;
-
-   const [projectsCompleted, setProjectsCompleted] = useState(0);
+ 
+   const [projectsCompleted, setprojectsCompleted] = useState(0);
    const projectCounter = (start, end) => {
-      if (start === end) return;
-
-      let timer = setInterval(() => {
-         start += 1;
-         setProjectsCompleted(start);
-
-         if (start === end) clearInterval(timer);
-      }, 100);
+     if (start === end) return;
+ 
+     let timer = setInterval(() => {
+       start += 1;
+       setprojectsCompleted(start);
+ 
+       if (start === end) clearInterval(timer);
+     }, 100);
    };
-
+ 
    const [webProjects, setWebProjects] = useState(0);
    const webProjectCounter = (start, end) => {
-      if (start === end) return;
-
-      let timer = setInterval(() => {
-         start += 1;
-         setWebProjects(start);
-
-         if (start === end) clearInterval(timer);
-      }, 100);
+     if (start === end) return;
+ 
+     let timer = setInterval(() => {
+       start += 1;
+       setWebProjects(start);
+ 
+       if (start === end) clearInterval(timer);
+     }, 100);
    };
-
+ 
    const [clientsServed, setClientsServed] = useState(0);
    const clientCounter = (start, end) => {
-      if (start === end) return;
-
-      let timer = setInterval(() => {
-         start += 1;
-         setClientsServed(start);
-
-         if (start === end) clearInterval(timer);
-      }, 200);
+     if (start === end) return;
+ 
+     let timer = setInterval(() => {
+       start += 1;
+       setClientsServed(start);
+ 
+       if (start === end) clearInterval(timer);
+     }, 200);
    };
-
+ 
    const [onGoingProjects, setOnGoingProjects] = useState(0);
    const onGoingCounter = (start, end) => {
-      if (start === end) return;
-
-      let timer = setInterval(() => {
-         start += 1;
-         setOnGoingProjects(start);
-
-         if (start === end) clearInterval(timer);
-      }, 200);
+     if (start === end) return;
+ 
+     let timer = setInterval(() => {
+       start += 1;
+       setOnGoingProjects(start);
+ 
+       if (start === end) clearInterval(timer);
+     }, 200);
    };
-
-   if (offset > 300 && offset < 350) {
-      projectCounter(0, totalProjects);
-      webProjectCounter(0, totalWebProjects);
-      clientCounter(0, totalClientsServed);
-      onGoingCounter(0, totalOngoingProjects);
-      setOffset(0);
-   }
-
+ 
+   useEffect(() => {
+     if (offset > 300 && offset < 650) {
+       projectCounter(projectsCompleted, totalProjects);
+       webProjectCounter(webProjects, totalWebProjects);
+       clientCounter(clientsServed, totalClientsServed);
+       onGoingCounter(onGoingProjects, totalOngoingProjects);
+       setOffset(0);
+     }
+   }, [offset]);
    return (
       <section className="about-us" id={"aboutus"}>
          <div className="numbers">
@@ -138,7 +139,7 @@ const AboutSection = () => {
                      We believe in delivering solutions that meet customer needs, business objectives, and budget expectations.
                   </p>
                </div>
-               <Link href={"/detailedwork"} className="awesome-link"> Explore Our Work
+               <Link href={"/work"} className="awesome-link"> Explore Our Work
                </Link>
 
             </div>

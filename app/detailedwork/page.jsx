@@ -1,109 +1,116 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { pageAnimation, smoothFade, frameParentIvert, frameAnimationIvert } from "../../utility/animation";
-import { workData } from "../../json/ourWorkData"; // Verify the path here
-import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import parse from 'html-react-parser';
+import Slider from 'react-slick';
+import { motion } from 'framer-motion';
+import { pageAnimation, frameParentIvert, frameAnimationIvert, fade } from "../../utility/animation";
+import { workData } from "../../json/ourWorkData";
+import Link from 'next/link';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
+const detailedwork = ({ params }) => {
+  const { id } = params;
+  const myWork = workData.find(work => work.url.includes(id));
 
-const DetailedWork = () => {
-   const filters = [
-      'All Work',
-      'Web Design',
-      'Web Development',
-      'MVPs',
-      'Mobile Apps',
-      'E-commerce',
-      'UI/UX & Prototyping',
-      'Web Apps',
-   ];
+  const customSlider = React.useRef();
 
-   const [items, setItems] = useState(workData); // Verify that workData is correctly populated
-   const [activeBtn, setActiveBtn] = useState(filters[0]);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+  };
 
-   useEffect(() => {
-      console.log("Work Data:", workData); // Check if workData is populated correctly
-      window.scrollTo(0, 0);
-      document.title = "Our Work";
-   }, []);
+  const gotoNext = () => {
+    customSlider.current.slickNext();
+  };
 
-   const filterItem = (selectedCategory) => {
-      if (selectedCategory === filters[0]) {
-         setItems(workData);
-      } else {
-         const updatedItems = workData.filter((workDataCard) => {
-            return workDataCard.category.includes(selectedCategory);
-         });
-         setItems(updatedItems);
-      }
-      setActiveBtn(selectedCategory);
-   };
+  const gotoPrev = () => {
+    customSlider.current.slickPrev();
+  };
 
-   const gridItemVariants = {
-      hidden: { opacity: 0, scale: 0.8 },
-      show: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
-   };
-
-   return (
-      <motion.div exit="exit" variants={pageAnimation} initial="hidden" animate="show">
-         <motion.div variants={frameParentIvert}>
-            <motion.div className="animation-frame one" variants={frameAnimationIvert}></motion.div>
-            <motion.div className="animation-frame two" variants={frameAnimationIvert}></motion.div>
-            <motion.div className="animation-frame three" variants={frameAnimationIvert}></motion.div>
-         </motion.div>
-
-         <motion.section className="our-work" variants={smoothFade}>
-            <div className="container">
-               <div className="heading">
-                  <h2>Glimpse of Our Past Projects</h2>
-                  <div className="line"></div>
-               </div>
-
-               <div className="filter-container">
-                  {filters.map((filter, index) => (
-                     <button
-                        key={index}
-                        className={activeBtn === filter ? "active-button" : ""}
-                        onClick={() => filterItem(filter)}
-                     >
-                        {filter}
-                     </button>
-                  ))}
-               </div>
-
-               <motion.div className="gallery-grid" key={activeBtn}>
-                  {items.map((project) => (
-                     <motion.div
-                        key={project.id}
-                        className="grid-item"
-                        variants={gridItemVariants}
-                        initial="hidden"
-                        animate="show"
-                     >
-                        <Image src={project.thumbnail} alt={project.title} />
-                        <div className="content">
-                           <ul className="category">
-                              {project.category.map((el, index) => (
-                                 <li key={index}> {el} </li>
-                              ))}
-                           </ul>
-                           <h3 className="project-heading">{project.title}</h3>
-                           <p className="project-para">{project.shortDescription}</p>
-                           <Link href={project.url}>
-                                 <button className="normal-btn primary">
-                                    <span>Read More</span>
-                                    <i className="bi bi-arrow-right"></i>
-                                 </button>
-                           </Link>
-                        </div>
-                     </motion.div>
-                  ))}
-               </motion.div>
-            </div>
-         </motion.section>
+  return (
+    <motion.div exit="exit" variants={pageAnimation} initial="hidden" animate="show">
+      <motion.div initial="hidden" animate="show" variants={frameParentVert}>
+        <motion.div className="animation-frame two" variants={frameAnimationVert}></motion.div>
+        <motion.div className="animation-frame three" variants={frameAnimationVert}></motion.div>
       </motion.div>
-   );
+
+      <motion.div className="detailed-work">
+        <motion.div className="container" variants={smoothFade}>
+          <div className="row">
+            <Link href="/work" className="close mobile"><i className="bi bi-x-lg"></i></Link>
+            <div className="details">
+
+              <div className="titles">
+                <div className="image">
+                  <img src={myWork.logo} alt={myWork.title} />
+                </div>
+                <div className="pretext">
+                  <h2 className="project-heading">{myWork.title}</h2>
+                  <ul className="niche">
+                    {myWork.niche.map((x, index) => (
+                      <li key={index}>{x}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="slider-wrapper">
+                <button className="prev slider-btn" onClick={gotoPrev}><i className="bi bi-chevron-left"></i></button>
+                <Slider {...settings} className="work-slider" ref={customSlider}>
+                  {myWork.gallery.map((img, index) => (
+                    <div className="card" key={index}>
+                      <img src={img} alt={img} className="gallery-image" />
+                    </div>
+                  ))}
+                </Slider>
+                <button className="next slider-btn" onClick={gotoNext}><i className="bi bi-chevron-right"></i></button>
+              </div>
+
+              <div className="button-group">
+                {myWork.links.map((link, index) => (
+                  <a key={index} href={link.value} target="_blank" className="awesome-link" rel="noreferrer">Visit {link.key}</a>
+                ))}
+              </div>
+
+              <div className="description">
+                {parse(myWork.description)}
+              </div>
+            </div>
+            <div className="review">
+              <Link href="/work" className="close"><i className="bi bi-x-lg"></i></Link>
+              <div className="title">
+                <h2>Client Review</h2>
+                <ul>
+                  <li><i className="bi bi-star-fill"></i></li>
+                  <li><i className="bi bi-star-fill"></i></li>
+                  <li><i className="bi bi-star-fill"></i></li>
+                  <li><i className="bi bi-star-fill"></i></li>
+                  <li><i className="bi bi-star-fill"></i></li>
+                </ul>
+              </div>
+              <p className="text">
+                {myWork.clientReview}
+              </p>
+              <div className="client">
+                <h4>{myWork.clientName}</h4>
+                <p>- {myWork.designation}</p>
+              </div>
+              <div className="button-group">
+                <Link href="/contact" className="normal-btn primary">Book a Call</Link>
+                <Link href="/contact" className="normal-btn secondary">Get a Free Quote</Link>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
 };
 
-export default DetailedWork;
+export default detailedwork;
