@@ -33,44 +33,44 @@ const Service2 = () => (
 <path opacity="0.2" d="M73.6846 206.986C75.74 208.185 77.3843 211.029 77.3843 213.427V223.877L84.304 227.851C86.3593 229.05 88.0036 231.894 88.0036 234.292C88.0036 236.656 86.3251 237.616 84.304 236.451L77.3843 232.476V242.926C77.3843 245.29 75.7057 246.25 73.6846 245.085C71.6293 243.885 69.985 241.042 69.985 238.644V228.194L63.0653 224.219C61.0099 223.02 59.3657 220.177 59.3657 217.778C59.3657 215.414 61.0442 214.455 63.0653 215.62L69.985 219.594V209.144C69.985 206.746 71.6293 205.787 73.6846 206.986Z" fill="url(#paint9_linear)"/>
 <defs>
 <linearGradient id="paint0_linear" x1="271.517" y1="25.0642" x2="187.012" y2="171.502" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint1_linear" x1="230.894" y1="0.988081" x2="146.388" y2="147.426" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint2_linear" x1="257.815" y1="35.3426" x2="173.309" y2="181.781" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint3_linear" x1="217.192" y1="11.2665" x2="132.686" y2="157.704" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint4_linear" x1="109.345" y1="38.6093" x2="53.4028" y2="135.515" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint5_linear" x1="69.8262" y1="4.47895" x2="87.6488" y2="55.005" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint6_linear" x1="181.28" y1="168.64" x2="125.338" y2="265.545" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint7_linear" x1="141.761" y1="134.51" x2="159.584" y2="185.035" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint8_linear" x1="89.3163" y1="132.376" x2="36.6753" y2="173.585" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 <linearGradient id="paint9_linear" x1="80.8302" y1="220.335" x2="62.8874" y2="234.484" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0"/>
 </linearGradient>
 </defs>
 </svg>
