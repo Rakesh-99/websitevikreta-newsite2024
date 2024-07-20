@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import "./globals.css";
 import '../styles/main.scss';
 import { metadata } from "./metadata";
+import Link from "next/link";
+
 
 import Nav from "../components/navbar/Nav";
 import Footer from "../components/footer";
@@ -30,6 +32,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <title>{metadata.title}</title>
+        <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={metadata.description} />
         <GoogleAnalytics id="G-QN768NT1EF" /> 
       </head>

@@ -1,15 +1,11 @@
-
 "use client";
+import { Link as ScrollLink } from 'react-scroll';
 import Link from "next/link";
-//import { useNavigation } from 'next/navigation'; // Use next/navigation instead of next/router
 import NavbarCTA from "./NavbarCTA";
 import LogoIcon from "../../assets/LogoIcon.jsx";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
-
 const Nav = () => {
-   //const navigation = useNavigation(); // Use useNavigation hook
-
    const unCheck = () => {
       document.querySelectorAll("#navToggle")[0].checked = false;
    };
@@ -19,10 +15,8 @@ const Nav = () => {
    };
 
    const handleHomeClick = () => {
-      // if (navigation.pathname === "/") {
-      //   scrollUp();
-      // }
       unCheck();
+      scrollUp();
    };
 
    return (
@@ -44,10 +38,30 @@ const Nav = () => {
                <div className="wrapper">
                   <ul className="nav-list">
                      <li className="nav-item" onClick={handleHomeClick}><Link href="/">Home</Link></li>
-                     <li className="nav-item" onClick={unCheck}><Link href="/#aboutus">About Us</Link></li>
-                     <li className="nav-item" onClick={unCheck}><Link href="/#services">Our Services</Link></li>
-                     <li className="nav-item" onClick={unCheck}><Link href="/work">Our Work</Link></li>
-                     <li className="nav-item" onClick={unCheck}><Link href="/contactus">Contact Us</Link></li>
+                     <li className="nav-item">
+                        <ScrollLink
+                           to="aboutus"
+                           smooth={true}
+                           duration={500}
+                           offset={-70} // Adjust based on your navbar height
+                           onClick={unCheck}
+                        >
+                           About Us
+                        </ScrollLink>
+                     </li>
+                     <li className="nav-item">
+                        <ScrollLink
+                           to="services"
+                           smooth={true}
+                           duration={500}
+                           offset={-70} // Adjust based on your navbar height
+                           onClick={unCheck}
+                        >
+                           Our Services
+                        </ScrollLink>
+                     </li>
+                     <li className="nav-item"><Link href="/work">Our Work</Link></li>
+                     <li className="nav-item"><Link href="/contactus">Contact Us</Link></li>
                   </ul>
                   <ul className="social-icons">
                      <li className="social"><Link href="https://www.instagram.com/websitevikreta/" target="_BLANK" rel="noreferrer"><i className="bi bi-instagram"></i></Link></li>
