@@ -74,7 +74,7 @@ const AboutSection = () => {
        onGoingCounter(onGoingProjects, totalOngoingProjects);
        setOffset(0);
      }
-   }, [offset, projectsCompleted, webProjects, clientsServed, onGoingProjects]);
+   }, [offset, projectsCompleted, webProjects, clientsServed, onGoingProjects, totalClientsServed, totalOngoingProjects, totalProjects, totalWebProjects]);
    return (
       <section className="about-us" id={"aboutus"}>
          <div className="numbers">

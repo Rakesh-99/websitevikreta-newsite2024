@@ -10,6 +10,8 @@ import Link from "next/link";
 import Nav from "../components/navbar/Nav";
 import Footer from "../components/footer";
 import DotRing from '../components/cursor/DotRing';
+import GoTop from '../components/GoTop';
+
 
 import { navbarScroll } from '../utility/navbarScroll';
 import { navbarCTAScroll } from '../utility/navbarCTAScroll';
@@ -47,6 +49,7 @@ export default function RootLayout({ children }) {
         {children}
         <DotRing />
         <Footer />
+        <GoTop />
 
       </body>
     </html>
