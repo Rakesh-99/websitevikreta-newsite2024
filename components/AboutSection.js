@@ -1,3 +1,4 @@
+"use client";
 import NumberImg from "../assets/numbers-svg.svg";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -73,7 +74,7 @@ const AboutSection = () => {
        onGoingCounter(onGoingProjects, totalOngoingProjects);
        setOffset(0);
      }
-   }, [offset]);
+   }, [offset, projectsCompleted, webProjects, clientsServed, onGoingProjects]);
    return (
       <section className="about-us" id={"aboutus"}>
          <div className="numbers">

@@ -1,19 +1,19 @@
 "use client";
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect,useRef } from "react";
 import parse from 'html-react-parser';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
-import { pageAnimation, frameParentIvert, frameAnimationIvert, fade } from "../../utility/animation";
-import { workData } from "../../json/ourWorkData";
+import { pageAnimation, frameParentVert, frameAnimationVert, smoothFade } from "../../../utility/animation";
+import { workData } from "../../../json/ourWorkData";
 import Link from 'next/link';
+import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const detailedwork = ({ params }) => {
-  const { id } = params;
-  const myWork = workData.find(work => work.url.includes(id));
+const Detailedwork = ({ params }) => {
+  const myWork = workData.find(work => work.url.includes(params.slug));
+  const customSlider = useRef(null);
 
-  const customSlider = React.useRef();
 
   const settings = {
     dots: false,
@@ -32,7 +32,7 @@ const detailedwork = ({ params }) => {
   const gotoPrev = () => {
     customSlider.current.slickPrev();
   };
-
+  
   return (
     <motion.div exit="exit" variants={pageAnimation} initial="hidden" animate="show">
       <motion.div initial="hidden" animate="show" variants={frameParentVert}>
@@ -48,7 +48,12 @@ const detailedwork = ({ params }) => {
 
               <div className="titles">
                 <div className="image">
-                  <img src={myWork.logo} alt={myWork.title} />
+                  <Image
+                    src={myWork.logo}
+                    alt={myWork.title}
+                    width={200} // Adjust width and height as per your design
+                    height={200}
+                  />
                 </div>
                 <div className="pretext">
                   <h2 className="project-heading">{myWork.title}</h2>
@@ -63,10 +68,16 @@ const detailedwork = ({ params }) => {
               <div className="slider-wrapper">
                 <button className="prev slider-btn" onClick={gotoPrev}><i className="bi bi-chevron-left"></i></button>
                 <Slider {...settings} className="work-slider" ref={customSlider}>
-                  {myWork.gallery.map((img, index) => (
-                    <div className="card" key={index}>
-                      <img src={img} alt={img} className="gallery-image" />
-                    </div>
+                {myWork.gallery.map((img, index) => (
+                  <div className="card" key={index}>
+                  <Image
+                    src={img}
+                    alt={`Gallery Image ${index + 1}`}
+                    layout="responsive" // Or use layout="fill" if you want the image to fill its container
+                    width={500} // Adjust these values based on your design
+                    height={250}
+                  />
+                  </div>
                   ))}
                 </Slider>
                 <button className="next slider-btn" onClick={gotoNext}><i className="bi bi-chevron-right"></i></button>
@@ -113,4 +124,4 @@ const detailedwork = ({ params }) => {
   );
 };
 
-export default detailedwork;
+export default Detailedwork;

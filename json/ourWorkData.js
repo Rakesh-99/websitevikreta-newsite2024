@@ -1,6 +1,8 @@
 // importing images
 
 //common logo for both SBP
+import Image from 'next/image';
+
 import SBPlogo from "../assets/Work/SBP-webApp/sbp-logo.svg"
 
 //sbp webapp change images when ready

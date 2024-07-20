@@ -7,7 +7,7 @@ import { workData } from "../../json/ourWorkData"; // Verify the path here
 import Image from 'next/image';
 
 
-const work = () => {
+const Work = () => {
    const filters = [
       'All Work',
       'Web Design',
@@ -90,11 +90,11 @@ const work = () => {
                            </ul>
                            <h3 className="project-heading">{project.title}</h3>
                            <p className="project-para">{project.shortDescription}</p>
-                           <Link href={project.url}>
-                                 <button className="normal-btn primary">
+                           <Link href={`${project.url}`}>
+                                 <span className="normal-btn primary">
                                     <span>Read More</span>
                                     <i className="bi bi-arrow-right"></i>
-                                 </button>
+                                 </span>
                            </Link>
                         </div>
                      </motion.div>
@@ -106,4 +106,4 @@ const work = () => {
    );
 };
 
-export default work;
+export default Work;

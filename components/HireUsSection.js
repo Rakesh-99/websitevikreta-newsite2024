@@ -18,7 +18,7 @@ const HireUsSection = () => {
             </div>
 
             <div className="right">
-               <Link href={"/detailedwork"} className="normal-btn primary shadow">View Our Work</Link>
+               <Link href={"/work"} className="normal-btn primary shadow">View Our Work</Link>
                <Link href={"/contactus"} className="normal-btn secondary shadow">Contact Us</Link>
             </div>
          </div>
