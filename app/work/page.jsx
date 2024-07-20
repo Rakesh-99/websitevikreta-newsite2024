@@ -91,7 +91,7 @@ const Work = () => {
                            <h3 className="project-heading">{project.title}</h3>
                            <p className="project-para">{project.shortDescription}</p>
                            <Link href={`${project.url}`}>
-                                 <span className="normal-btn primary">
+                                 <span className="normal-btn primary" style={{ marginLeft: '-10px' }}>
                                     <span>Read More</span>
                                     <i className="bi bi-arrow-right"></i>
                                  </span>
