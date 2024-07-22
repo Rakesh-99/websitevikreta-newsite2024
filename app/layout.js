@@ -40,11 +40,14 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff"></meta>
+        <meta name="theme-color" content="#ffffff"></meta> 
         <meta name="description" content={metadata.description} />
         <GoogleAnalytics id="G-QN768NT1EF" />
+        
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/46829457.js"></script>
+
       </head>
-      <body className={inter.className}>
+      <body className={inter.className}>    
         <Nav />
         {children}
         <DotRing />

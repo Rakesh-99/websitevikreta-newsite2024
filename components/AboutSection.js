@@ -83,7 +83,7 @@ const AboutSection = () => {
                   src={NumberImg}
                   alt=""
                   className="image"
-                  layout="responsive"
+                  //layout="responsive"
                />
                <h1 className="number">{projectsCompleted}</h1>
                <p className="text">Projects Completed</p>
@@ -93,7 +93,7 @@ const AboutSection = () => {
                   src={NumberImg}
                   alt=""
                   className="image"
-                  layout="responsive"
+                  //layout="responsive"
                />
                <h1 className="number">{webProjects}</h1>
                <p className="text">Web Projects</p>
@@ -103,7 +103,7 @@ const AboutSection = () => {
                   src={NumberImg}
                   alt=""
                   className="image"
-                  layout="responsive"
+                  //layout="responsive"
                />
                <h1 className="number">{clientsServed}</h1>
                <p className="text">Clients Served</p>
@@ -113,7 +113,7 @@ const AboutSection = () => {
                   src={NumberImg}
                   alt=""
                   className="image"
-                  layout="responsive"
+                  //layout="responsive"
                />
                <h1 className="number">{onGoingProjects}</h1>
                <p className="text">Ongoing Projects</p>

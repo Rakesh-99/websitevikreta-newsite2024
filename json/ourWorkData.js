@@ -534,19 +534,19 @@ export const workData = [
    
             <ul>
                <li>
-                  <i class="bi bi-check2"></i>
+                  <i className="bi bi-check2"></i>
                   Here you’ll find a opportunities page in which student can find out different opportunities provided by boompanda
                </li>
                <li>
-                  <i class="bi bi-check2"></i>
+                  <i className="bi bi-check2"></i>
                   Offers page is built extensively attractive and precise where user can view various offer given by this organization and also user can view terms and conditions and can redeem it.
                </li>
                <li>
-                  <i class="bi bi-check2"></i>
+                  <i className="bi bi-check2"></i>
                   Contact us, login and signup all the pages are made very precise and clear.
                </li>
                <li>
-                  <i class="bi bi-check2"></i>
+                  <i className="bi bi-check2"></i>
                   Admin panel is developed in a way that every operation can be perform easily with different login roles.
                </li>
             </ul>

@@ -73,7 +73,7 @@ const Detailedwork = ({ params }) => {
                   <Image
                     src={img}
                     alt={`Gallery Image ${index + 1}`}
-                    layout="responsive" // Or use layout="fill" if you want the image to fill its container
+                    //layout="responsive" // Or use layout="fill" if you want the image to fill its container
                     width={500} // Adjust these values based on your design
                     height={250}
                   />
