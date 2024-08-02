@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@next/third-parties": "^14.2.4",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.52.2",
     "axios": "^1.7.2",
     "bootstrap-icons": "^1.11.3",
     "emailjs-com": "^3.2.0",
@@ -18,13 +20,16 @@
     "ipapi.co": "^0.3.0",
     "libphonenumber-js": "^1.11.4",
     "next": "14.2.4",
+    "next-sanity": "^9.4.2",
     "react": "^18",
     "react-hot-toast": "^2.4.1",
     "react-phone-input-2": "^2.15.1",
     "react-scroll": "^1.9.0",
     "react-slick": "^0.30.2",
+    "sanity": "^3.52.2",
     "sass": "^1.77.6",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.12",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

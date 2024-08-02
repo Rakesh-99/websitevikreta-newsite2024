@@ -1,8 +1,6 @@
 // importing images
 
 //common logo for both SBP
-import Image from 'next/image';
-
 import SBPlogo from "../assets/Work/SBP-webApp/sbp-logo.svg"
 
 //sbp webapp change images when ready
@@ -23,6 +21,18 @@ import SBP4 from "../assets/Work/SBP-website/4.jpg"
 import SBP5 from "../assets/Work/SBP-website/5.jpg"
 import SBP6 from "../assets/Work/SBP-website/6.jpg"
 import SBP7 from "../assets/Work/SBP-website/7.jpg"
+
+//sbp webapp
+import sbpapp1 from "../assets/Work/SBP-webApp/sbp_webapp-01.jpg"
+import sbpapp2 from "../assets/Work/SBP-webApp/sbp_webapp-02.jpg"
+import sbpapp3 from "../assets/Work/SBP-webApp/sbp_webapp-03.jpg"
+import sbpapp4 from "../assets/Work/SBP-webApp/sbp_webapp-04.jpg"
+import sbpapp5 from "../assets/Work/SBP-webApp/sbp_webapp-05.jpg"
+import sbpapp6 from "../assets/Work/SBP-webApp/sbp_webapp-06.jpg"
+import sbpapp7 from "../assets/Work/SBP-webApp/sbp_webapp-07.jpg"
+import sbpapp8 from "../assets/Work/SBP-webApp/sbp_webapp-08.jpg"
+import sbpapp9 from "../assets/Work/SBP-webApp/sbp_webapp-09.jpg"
+
 //blancora
 import blancoraLogo from "../assets/Work/blancora/blancora-logo.svg"
 import blancora1 from "../assets/Work/blancora/1.jpg"
@@ -120,6 +130,14 @@ import championg4 from "../assets/Work/champion-lenders/gallery/champion4.jpg";
 import championg5 from "../assets/Work/champion-lenders/gallery/champion5.jpg";
 import championg6 from "../assets/Work/champion-lenders/gallery/champion6.jpg";
 
+//addli
+import addli1 from "../assets/Work/Addli/addli-01.jpg"
+import addli2 from "../assets/Work/Addli/addli-02.jpg"
+import addli3 from "../assets/Work/Addli/addli-03.jpg"
+import addli4 from "../assets/Work/Addli/addli-04.jpg"
+import addli5 from "../assets/Work/Addli/addli-05.jpg"
+import addli6 from "../assets/Work/Addli/addli-06.jpg"
+
 
 // Real Data
 export const workData = [
@@ -127,7 +145,7 @@ export const workData = [
    {
       id: 1,
       url: "/work/sbpwebapp",
-      thumbnail: "",
+      thumbnail: sbpapp1,
       logo: SBPlogo,
       title: "WebApp Re-design for Sustainable Bitcoin Protocol",
       niche: ["Figma", "UI/UX", "Prototyping", "Web Design", "Web Apps", "Mockups"],
@@ -135,7 +153,7 @@ export const workData = [
       links: [
          { key: "Figma", value: "https://bit.ly/sbp-platform-figma" }
       ],
-      gallery: [
+      gallery: [ sbpapp1, sbpapp2, sbpapp3, sbpapp4, sbpapp5, sbpapp6, sbpapp7, sbpapp8, sbpapp9
         
       ],
       shortDescription: `
@@ -534,19 +552,19 @@ export const workData = [
    
             <ul>
                <li>
-                  <i className="bi bi-check2"></i>
+                  <i class="bi bi-check2"></i>
                   Here you’ll find a opportunities page in which student can find out different opportunities provided by boompanda
                </li>
                <li>
-                  <i className="bi bi-check2"></i>
+                  <i class="bi bi-check2"></i>
                   Offers page is built extensively attractive and precise where user can view various offer given by this organization and also user can view terms and conditions and can redeem it.
                </li>
                <li>
-                  <i className="bi bi-check2"></i>
+                  <i class="bi bi-check2"></i>
                   Contact us, login and signup all the pages are made very precise and clear.
                </li>
                <li>
-                  <i className="bi bi-check2"></i>
+                  <i class="bi bi-check2"></i>
                   Admin panel is developed in a way that every operation can be perform easily with different login roles.
                </li>
             </ul>
@@ -583,7 +601,43 @@ export const workData = [
       clientName: "John Kim",
       designation: "CEO - Champion Lenders",
    },
+   {
+      id: 15,
+      url: "/work/addli",
+      thumbnail: addli1,
+      logo: championLogo,
+      title: "Business Website Design & Developed for Addli",
+      niche: ["Web Development",
+         "ReactJS",
+         "Responsive Design",
+         "Figma",
+         "UI/UX",
+         "Prototyping",
+         "Web Design",
+         "Web Apps",
+         "Mockups"],
+      category: ["Web Development", "Web Design", "UI/UX & Prototyping"],
+      links: [
+         { key: "Figma", value: "https://www.figma.com/file/UH4rqEkr70Vd0ilpEQVOok/Champion-Lenders?node-id=0%3A1" },
+      ],
+      shortDescription: "Figma based website design. It provides investors and beneficiaries with the best possible trust deed investment opportunities.",
+      gallery: [
+         addli1, addli2, addli3, addli4, addli5,addli6
+      ],
+      description: `
+         <p className = "para">
+         short description
+         </p>
+         <p className = "para">
+            This web site shows their prime properties to speculate with all the property connected data. method to urge the property, commonly asked queries and therefore the main issue to focus is that here there's a google type showing their location this created this web site a lot of precise, clear and enticing.
+         </p>
+      `,
+      clientReview: "Website Vikreta did really nice work. They have really fast hands. They finished our new website design in the given time. They always responded quickly and has a really good sense of design. I will rehire them for future projects for sure.",
+      clientName: "John Kim",
+      designation: "CEO - Champion Lenders",
+   },
 ]
+
 
 //Tags' content is used inside 'niche' property
 

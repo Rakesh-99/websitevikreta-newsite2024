@@ -1,17 +1,15 @@
 "use client";
 import { Inter } from "next/font/google";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import "./globals.css";
 import '../styles/main.scss';
 import { metadata } from "./metadata";
-import Link from "next/link";
-
 
 import Nav from "../components/navbar/Nav";
 import Footer from "../components/footer";
 import DotRing from '../components/cursor/DotRing';
 import GoTop from '../components/GoTop';
-
 
 import { navbarScroll } from '../utility/navbarScroll';
 import { navbarCTAScroll } from '../utility/navbarCTAScroll';
@@ -20,6 +18,8 @@ import { GoogleAnalytics } from '@next/third-parties/google'; // Import Google A
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     navbarScroll();
     navbarCTAScroll();
@@ -29,6 +29,8 @@ export default function RootLayout({ children }) {
       window.removeEventListener("scroll", navbarCTAScroll);
     };
   }, []);
+
+  const isStudio = pathname.startsWith('/studio');
 
   return (
     <html lang="en">
@@ -48,12 +50,11 @@ export default function RootLayout({ children }) {
 
       </head>
       <body className={inter.className}>    
-        <Nav />
+        {!isStudio && <Nav />}
         {children}
         <DotRing />
-        <Footer />
+        {!isStudio && <Footer />}
         <GoTop />
-
       </body>
     </html>
   );
