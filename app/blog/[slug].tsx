@@ -1,4 +1,4 @@
-import ArticlePage from "../../components/news/ArticlePage";
+import ArticlePage from "../../components/Blogs/ArticlePage";
 import { Metadata } from "next";
 
 

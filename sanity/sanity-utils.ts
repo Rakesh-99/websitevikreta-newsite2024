@@ -14,7 +14,7 @@ const client = createClient({
 
 
 
-export async function getNewsPageData() {
+export async function getBlogPageData() {
   return client.fetch(
      groq`
         {

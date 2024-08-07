@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import NewsPage from "../../components/news/BlogsPage";
+import BlogsPage from "../../components/Blogs/BlogsPage";
 
 export const metadata: Metadata = {
    title: " Blogs | Website Vikreta",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const page = () => {
-   return <NewsPage />;
+   return <BlogsPage />;
 };
 
 export default page;
