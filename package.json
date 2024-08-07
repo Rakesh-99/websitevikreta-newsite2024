@@ -20,6 +20,7 @@
     "ipapi.co": "^0.3.0",
     "isotope-layout": "^3.0.6",
     "libphonenumber-js": "^1.11.4",
+    "metadata": "^0.1.0",
     "next": "14.2.4",
     "next-sanity": "^9.4.2",
     "react": "^18",

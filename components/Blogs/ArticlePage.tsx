@@ -6,11 +6,11 @@ import ArticleSidebar from "./ArticleSidebar";
 
 // import Sanity
 import { getArticleData } from "../../sanity/sanity-utils";
-import { getNewsPageData } from "../../sanity/sanity-utils";
+import { getBlogPageData } from "../../sanity/sanity-utils";
 
 export default async function ArticlePage({ slug }: { slug: string }) {
    const articleData = await getArticleData(slug);
-   const latestNewsData = await getNewsPageData();
+   const latestNewsData = await getBlogPageData();
 
    return (
       <>

@@ -1,15 +1,16 @@
+"use client";
 import React from "react";
 import { Metadata } from "next";
-import BlogsPage from "../../components/Blogs/BlogsPage";
+import dynamic from "next/dynamic";
 
-export const metadata: Metadata = {
-   title: " Blogs | Website Vikreta",
-   description:
-      "Website Vikreta.",
-};
+// Dynamically import the BlogsPage to avoid server-side rendering
+const BlogsPage = dynamic(() => import("../../components/Blogs/BlogsPage"), {
+   ssr: false,
+});
 
-const page = () => {
+
+const Page = () => {
    return <BlogsPage />;
 };
 
-export default page;
+export default Page;
