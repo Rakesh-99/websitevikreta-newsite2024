@@ -24,6 +24,7 @@
 
    .logo {
       @include flex-center;
+      gap:10px;
 
       svg {                        //chaged style element as we have svg compnent in next
          max-height: 28px;
