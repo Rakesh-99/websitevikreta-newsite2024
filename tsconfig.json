@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "sanity.config.ts", "sanity/env.ts"  ],
+, "sanity.config.ts", "sanity/env.ts", "app/blog/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]

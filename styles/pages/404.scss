@@ -1,0 +1,52 @@
+// styles/pages/404.module.scss
+.errorContainer {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .errorImage {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .errorHeading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .errorDescription {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 10px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  .buttonPrimary {
+    background-color: #0070f3;
+  }
+  
+  .buttonNormal {
+    background-color: #6c757d;
+  }
+  

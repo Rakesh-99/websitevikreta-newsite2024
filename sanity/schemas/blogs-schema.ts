@@ -50,7 +50,7 @@ const news = {
       },
       {
          name: "image",
-         title: "Image",
+         title: "image",
          type: "image",
          options: { hotspot: true },
          fields: [
