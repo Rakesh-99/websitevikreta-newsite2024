@@ -224,21 +224,16 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
 
                                                 {/* CTA */}
                                                 <Link
-                                                   href={`${
-                                                      news.btnIsRedirect
-                                                         ? news.url
-                                                         : `news/${news.slug.current}`
-                                                   }`}
-                                                   target={`${
-                                                      news.btnIsRedirect
-                                                         ? "_blank"
-                                                         : ""
-                                                   }`}
-                                                   className="btn btn-secondary"
-                                                >
-                                                   <span>Read More</span>
-                                                   <i className="bi bi-arrow-up-right-circle"></i>
-                                                </Link>
+   href={`${
+      news.btnIsRedirect ? news.url : `Blogs/${news.slug.current}`
+   }`}
+   target={`${news.btnIsRedirect ? "_blank" : ""}`}
+   className="btn btn-secondary"
+>
+   <span>Read More</span>
+   <i className="bi bi-arrow-up-right-circle"></i>
+</Link>
+
                                              </div>
                                           </div>
                                        </>
@@ -589,19 +584,16 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
 
                                        {/* CTA */}
                                        <Link
-                                          href={`${
-                                             news.btnIsRedirect
-                                                ? news.url
-                                                : `news/${news.slug.current}`
-                                          }`}
-                                          target={`${
-                                             news.btnIsRedirect ? "_blank" : ""
-                                          }`}
-                                          className="btn btn-secondary"
-                                       >
-                                          <span>Read More</span>
-                                          <i className="bi bi-arrow-up-right-circle"></i>
-                                       </Link>
+   href={`${
+      news.btnIsRedirect ? news.url : `Blogs/${news.slug.current}`
+   }`}
+   target={`${news.btnIsRedirect ? "_blank" : ""}`}
+   className="btn btn-secondary"
+>
+   <span>Read More</span>
+   <i className="bi bi-arrow-up-right-circle"></i>
+</Link>
+
                                     </div>
                                  </>
                               );

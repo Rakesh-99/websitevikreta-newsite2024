@@ -3,7 +3,6 @@ import React from "react";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-// Dynamically import the BlogsPage to avoid server-side rendering
 const BlogsPage = dynamic(() => import("../../components/Blogs/BlogsPage"), {
    ssr: false,
 });
