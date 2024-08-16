@@ -98,7 +98,7 @@ const Nav = () => {
                      </li>
                      <li className="nav-item"><Link href="/work">Our Work</Link></li>
                      <li className="nav-item"><Link href="/contactus">Contact Us</Link></li>
-                     <li className="nav-item"><Link href="/blog">Blogs</Link></li>
+                     {/* <li className="nav-item"><Link href="/blog">Blogs</Link></li> */}
                   </ul>
                   <ul className="social-icons">
                      <li className="social"><Link href="https://www.instagram.com/websitevikreta/" target="_BLANK" rel="noreferrer"><i className="bi bi-instagram"></i></Link></li>
