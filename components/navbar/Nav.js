@@ -1,11 +1,14 @@
 "use client";
 import { Link as ScrollLink } from 'react-scroll';
+import { useState } from "react";
 import Link from "next/link";
 import NavbarCTA from "./NavbarCTA";
 import LogoIcon from "../../assets/LogoIcon.jsx";
 import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 const Nav = () => {
+   const [dropdownVisible, setDropdownVisible] = useState(false);
+
    const unCheck = () => {
       document.querySelectorAll("#navToggle")[0].checked = false;
    };
@@ -17,6 +20,15 @@ const Nav = () => {
    const handleHomeClick = () => {
       unCheck();
       scrollUp();
+   };
+
+   const toggleDropdown = () => {
+      setDropdownVisible(prev => !prev);
+   };
+
+   const handleLinkClick = () => {
+      setDropdownVisible(false); // Hide the dropdown when a link is clicked
+      unCheck();
    };
 
    return (
@@ -59,6 +71,30 @@ const Nav = () => {
                         >
                            Our Services
                         </ScrollLink>
+                     </li>
+                     <li className="nav-item">
+                        <Link href="/" onClick={toggleDropdown}>
+                           <div className={`navDropdown ${dropdownVisible ? 'show' : ''}`}>
+                              <input
+                                 type="checkbox"
+                                 className="navDropdownCheckbox"
+                                 id="dropdownCheckbox"
+                              />
+                              <label htmlFor="dropdownCheckbox" className="navDropdownLabel">
+                                 <span> Calculator </span>
+                                 <i className="bi bi-chevron-down"></i>
+                              </label>
+                              <div className="navDropdownMenu">
+                                 <ul>
+                                    <li>
+                                       <Link href="/website-cost-calculator" onClick={handleLinkClick}>
+                                          Website Cost Calculator
+                                       </Link>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </Link>
                      </li>
                      <li className="nav-item"><Link href="/work">Our Work</Link></li>
                      <li className="nav-item"><Link href="/contactus">Contact Us</Link></li>

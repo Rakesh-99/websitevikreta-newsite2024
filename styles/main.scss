@@ -55,11 +55,15 @@ img {
 }
 
 @import "./partials/components";
+@import "./partials/customSelect.scss";
+@import "./partials/placeOrder";
+@import "./partials/mixins";
 
 // importing pages
 @import "./pages/home";
 @import "./pages/contact";
 @import "./pages/work";
+@import "./pages/website-cost-calculator";
 // responsive
 @import "./partials/responsive";
 
