@@ -1,52 +1,64 @@
-// styles/pages/404.module.scss
-.errorContainer {
-    font-family: "Roboto", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Full viewport height */
-    text-align: center;
-    padding: 20px;
-    position: relative;
+.custom-404-container {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  /* Add padding-top if the image needs to be further down from the navbar */
+  padding-top: 60px; /* Adjust as needed */
+}
+
+.custom-404-image {
+  max-width: 30%;
+  margin-bottom: 20px; /* Reduced space between image and lower content */
+}
+
+.custom-404-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.normal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid $yellow;
+  padding: 10px 20px;
+  @include font-weight(medium);
+  transition: 0.35s ease-in-out;
+  text-align: center;
+
+  &.primary {
+     background: $yellow;
+     @include dark-color(dark);
   }
-  
-  .errorImage {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+
+  &:hover {
+     background: $yellow;
+     @include dark-color(dark);
+     background: $light;
+     filter: drop-shadow(4px 4px 0 rgba($yellow, 0.5));
   }
-  
-  .errorHeading {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .errorDescription {
-    font-size: 1.25rem;
-    margin-bottom: 30px;
-  }
-  
-  .buttonContainer {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 10px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #fff;
-  }
-  
-  .buttonPrimary {
-    background-color: #0070f3;
-  }
-  
-  .buttonNormal {
-    background-color: #6c757d;
-  }
-  
+}
+.custom-404-description {
+  font-size: 1.25rem;
+  margin-bottom: 20px; /* Reduced space below description */
+}
+
+.custom-404-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.arrow-icon {
+  font-size: 1.25rem; /* Adjust arrow size */
+  margin-right: 8px; /* Space between the arrow and text */
+  display: flex; /* Ensure proper alignment */
+  align-items: center; /* Center arrow vertically */
+}
