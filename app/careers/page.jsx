@@ -10,12 +10,7 @@ import {
   smoothFade,
 } from "../../utility/animation";
 import Image from "next/image";
-import client_img from "../../assets/client_img.png";
-import client_1 from "../../assets/client_1.jpg";
 import career_hero from "../../assets/career_hero.png";
-import ui_ux from "../../assets/ui_ux.png";
-import frontend_dev from "../../assets/frontend_dev.png";
-import marketing_intern from "../../assets/marketing_intern.png";
 import doc_img from "../../assets/doc_img.png";
 import { getCareerPageData } from "../../sanity/sanity-utils";
 import { useRouter } from "next/navigation";
@@ -28,7 +23,8 @@ const Careers = () => {
   useEffect(() => {
     async function fetchCareers() {
       const data = await getCareerPageData();
-      setCareers(data.careers);
+      console.log(data);
+      setCareers(data);
     }
     fetchCareers();
     window.scrollTo(0, 0);
@@ -91,96 +87,6 @@ const Careers = () => {
                 <Image src={career_hero} width={613} height={407} />
               </div>
             </div>
-            {/* <div className="careers">
-                        <div className="single-career">
-                            <div className="career-img">
-                                <Image
-                                    src={ui_ux}
-                                    width={344}
-                                    height={215}
-                                />
-                            </div>
-                            <div className="career-desc-main">
-                                <div className="career-desc">
-                                    <p className="main-heading">UI/UX Designer</p>
-                                    <p className="sub-heading">Open For Application</p>
-                                    <p className="para">We are looking for ui/ux designer for our team</p>
-                                    <p className="para">Intern    |    UI/UX Designer    |   Offline </p>
-                                </div>
-                                <div className="btn">
-                                    <button className="normal-btn primary">
-                                        <p className="btn-txt">Apply</p>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-career">
-                            <div className="career-img">
-                                <Image
-                                    src={frontend_dev}
-                                    width={344}
-                                    height={215}
-                                />
-                            </div>
-                            <div className="career-desc-main">
-                                <div className="career-desc">
-                                    <p className="main-heading">Frontend Developer</p>
-                                    <p className="sub-heading">Open For Application</p>
-                                    <p className="para">We are looking for ui/ux designer for our team</p>
-                                    <p className="para">Intern    |    Frontend Developer    |   Offline </p>
-                                </div>
-                                <div className="btn">
-                                    <button className="normal-btn primary">
-                                        <p className="btn-txt">Apply</p>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-career">
-                            <div className="career-img">
-                                <Image
-                                    src={marketing_intern}
-                                    width={344}
-                                    height={215}
-                                />
-                            </div>
-                            <div className="career-desc-main">
-                                <div className="career-desc">
-                                    <p className="main-heading">Marketing Intern</p>
-                                    <p className="sub-heading">Open For Application</p>
-                                    <p className="para">We are looking for ui/ux designer for our team</p>
-                                    <p className="para">Intern    |    Marketing Intern   |   Offline </p>
-                                </div>
-                                <div className="btn">
-                                    <button className="normal-btn primary">
-                                        <p className="btn-txt">Apply</p>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="single-career">
-                            <div className="career-img">
-                                <Image
-                                    src={ui_ux}
-                                    width={344}
-                                    height={215}
-                                />
-                            </div>
-                            <div className="career-desc-main">
-                                <div className="career-desc">
-                                    <p className="main-heading">UI/UX Designer</p>
-                                    <p className="sub-heading">Open For Application</p>
-                                    <p className="para">We are looking for ui/ux designer for our team</p>
-                                    <p className="para">Intern    |    UI/UX Designer    |   Offline </p>
-                                </div>
-                                <div className="btn">
-                                    <button className="normal-btn primary">
-                                        <p className="btn-txt">Apply</p>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
             <div className="careers">
               {careers.map((career) => (
                 <div className="single-career" key={career._id}>
