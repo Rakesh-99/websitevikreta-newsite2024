@@ -134,7 +134,8 @@ const CareerDetails = () => {
               </div>
               <div className="about">
                 <h2>Key responsibilities</h2>
-                <p>{career.responsibilities}</p>
+                {/* <p>{career.responsibilities}</p> */}
+                <PortableText value={career.responsibilities} />
               </div>
               <div className="skills">
                 <h2>Skill(s) required</h2>

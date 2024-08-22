@@ -126,5 +126,34 @@ export async function getCareerPageData() {
    );
  }
 
+ export async function getClientPageData() {
+   return client.fetch(
+     groq`
+       *[_type == "client"] | order(_createdAt desc) {
+         _id,
+         name,
+         slug,
+         "logoURL": logo.asset->url,
+         "logoAlt": logo.alt,
+         website,
+         description,
+         contact {
+           phone,
+           email
+         },
+         "projects": projects[]->{
+           _id,
+           title,
+           description
+         },
+         testimonials[]{
+           testimonial,
+           author
+         }
+       }
+     `
+   );
+ }
+
 
 // #endregion

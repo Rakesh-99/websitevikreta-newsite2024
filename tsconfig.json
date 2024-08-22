@@ -26,8 +26,13 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "sanity.config.ts", "sanity/env.ts", "app/blog/page.jsx"  ],
+    "**/*.tsx",
+    "sanity.config.ts",
+    "sanity/env.ts",
+    "app/blog/page.jsx",
+    "app/client/page.jsx",
+    "app/client/page.jsx"
+  ],
   "exclude": [
     "node_modules"
   ]

@@ -19,7 +19,6 @@ const Careers = () => {
   const [careers, setCareers] = useState([]);
   const router = useRouter();
 
-  // Fetch career data on component mount
   useEffect(() => {
     async function fetchCareers() {
       const data = await getCareerPageData();
@@ -84,7 +83,12 @@ const Careers = () => {
                 </div>
               </div>
               <div className="hero-img">
-                <Image src={career_hero} width={613} height={407} />
+                <Image
+                  src={career_hero}
+                  alt="career-hero-img"
+                  width={613}
+                  height={407}
+                />
               </div>
             </div>
             <div className="careers">
@@ -124,15 +128,24 @@ const Careers = () => {
             </div>
             <div className="career-banner">
               <div className="img">
-                <Image src={doc_img} width={95} height={110} />
+                <Image
+                  src={doc_img}
+                  alt="document_image"
+                  width={95}
+                  height={110}
+                />
               </div>
-              <p className="banner-heading">DON'T HESITATE TO CONTACT US.</p>
+              <p className="banner-heading">
+                DON&apos;T HESITATE TO CONTACT US.
+              </p>
               <div className="para">
                 <p>
-                  If you're looking for a creative and innovative environment to
-                  work in, then Website Vikreta could be the place for you.
+                  If you&apos;re looking for a creative and innovative
+                  environment to work in, then Website Vikreta could be the
+                  place for you.
                 </p>
               </div>
+
               {/* <p className="para"></p> */}
             </div>
           </div>
