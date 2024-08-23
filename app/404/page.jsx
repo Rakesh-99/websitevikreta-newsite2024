@@ -1,9 +1,9 @@
 "use client";
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import errorImage from '../../assets/error-animation.gif'; // Adjust path if necessary
 import { useEffect, useState } from 'react';
+import Lottie from 'react-lottie-player';
+import animationData from '../../assets/Animation404.json'; // Adjust path if necessary
 
 const Custom404 = () => {
   const router = useRouter();
@@ -16,12 +16,12 @@ const Custom404 = () => {
 
   return (
     <div className="custom-404-container">
-      <Image
-        src={errorImage}
-        alt="Error Image"
-        width={300}
-        height={200}
-        className="custom-404-image"
+      <Lottie
+        loop
+        animationData={animationData}
+        play
+        style={{ width: 620, height: 450 }}
+        className="custom-404-animation"
       />
       <h1 className="custom-404-heading">Something went wrong!</h1>
       <p className="custom-404-description">
