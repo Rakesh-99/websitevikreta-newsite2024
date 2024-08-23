@@ -456,6 +456,24 @@
          display: none;
       }
    }
+
+   .career-detail-main{
+      flex-direction: column;
+   }
+   
+   .apply{
+      margin-top: 2rem;
+   }
+   
+   .career-detail-main .career-detail .img{
+      width: 340px;
+   }
+   
+   .hidden{
+      margin-top: 0.5rem;
+      display: flex !important;
+   }
+
 }
 
 @media screen and (max-width: 500px) {
@@ -569,5 +587,7 @@
       
    }
 
-
 }
+
+//careers
+

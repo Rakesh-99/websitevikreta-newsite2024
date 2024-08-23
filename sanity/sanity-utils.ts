@@ -73,5 +73,87 @@ export async function getMiscPageData(slug: string) {
   );
 }
 
+export async function getCareerPageData() {
+   return client.fetch(
+     groq`
+       *[_type == "careers" && isOpeningActive == true] | order(_createdAt desc) {
+         _id,
+         title,
+         location,
+         startDate,
+         duration,
+         stipend,
+         applyBy,
+         jobType,
+         noOfOpenings,
+         slug,
+         about,
+         responsibilities,
+         skills,
+         eligibility,
+         perks,
+         "imageURL": image.asset->url,
+         isOpeningActive
+       }
+     `
+   );
+ }
+
+ export async function getCareerDetails(slug:string) {
+   return client.fetch(
+     groq`
+       *[_type == "careers" && slug.current == $slug][0] {
+         _id,
+         title,
+         location,
+         startDate,
+         duration,
+         stipend,
+         applyBy,
+         jobType,
+         noOfOpenings,
+         slug,
+         about,
+         responsibilities,
+         skills,
+         eligibility,
+         perks,
+         "imageURL": image.asset->url,
+         isOpeningActive
+       }
+     `,
+     { slug }
+   );
+ }
+
+ export async function getClientPageData() {
+   return client.fetch(
+     groq`
+       *[_type == "client"] | order(_createdAt desc) {
+         _id,
+         name,
+         slug,
+         "logoURL": logo.asset->url,
+         "logoAlt": logo.alt,
+         website,
+         description,
+         contact {
+           phone,
+           email
+         },
+         "projects": projects[]->{
+           _id,
+           title,
+           description
+         },
+         testimonials[]{
+           testimonial,
+           author
+         }
+       }
+     `
+   );
+ }
+
 
 // #endregion
