@@ -29,3 +29,19 @@ export async function fetchBlogs() { // changed from fetchPosts to fetchBlogs
   const blogs = await client.fetch(query);
   return blogs;
 }
+
+export async function fetchGigs() {
+  const query = `*[_type == "gig"]{
+    _id,
+    title,
+    image,
+    description,
+    price,
+    rating,
+    link
+  }`;
+  const gigs = await client.fetch(query);
+  return gigs;
+}
+
+
