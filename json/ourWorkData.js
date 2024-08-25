@@ -386,7 +386,8 @@ export const workData = [
       category: ["Web Development"],
       tags: ["Web Design", "Web Development", "UI/UX & Prototyping", "Figma", "Landing Page", "Shopify"],
       links: [
-         { key: " Figma", value: "https://bit.ly/workik-figma" }
+         { key: "Figma", value: "https://bit.ly/workik-figma" },
+         { key: "Website", value: "https://www.workik.com/shopify-ecommerce-applications" }
       ],
       gallery: [
          Workik1, Workik2, Workik3

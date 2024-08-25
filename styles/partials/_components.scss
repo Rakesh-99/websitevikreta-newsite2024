@@ -72,6 +72,10 @@
    .social-icons {
       margin-left: auto;
       gap: 1rem;
+
+      a{
+         @include flex-center;
+      }
    }
 }
 

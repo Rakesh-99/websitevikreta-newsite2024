@@ -134,7 +134,7 @@ const AboutSection = () => {
                      Website Vikreta is committed to providing web development services. We design, build professional websites/web-applications according to the needs of clients; as well as help them build their presence through digital marketing and much more.
                   </p>
                   <p className="para">
-                     We have completed 2+ years in the IT industry and are hoping for many more. Every business requires an impressive and attractive impact on the internet, and we are thrilled to provide it. We are dedicated to designing and developing a variety of web products. With the highest commitment and customer focus, we are known to deliver reliable web solutions.
+                     We have completed 4+ years in the IT industry and are hoping for many more. Every business requires an impressive and attractive impact on the internet, and we are thrilled to provide it. We are dedicated to designing and developing a variety of web products. With the highest commitment and customer focus, we are known to deliver reliable web solutions.
                   </p>
                   <p className="para">
                      We believe in delivering solutions that meet customer needs, business objectives, and budget expectations.

@@ -213,7 +213,7 @@ function calData() {
               {
                   name:"globally",
                   title:"Globally",
-                  cost:20000,
+                  cost:2000,
                   additionalTime:1,
                   recommended:false,
                   visibleAfterLoad:"noOfProduct"

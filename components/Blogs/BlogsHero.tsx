@@ -150,6 +150,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                          : ""
                                                    }`}
                                                 >
+                                                   <>
                                                    {news.imageURL && (
                                                       <Image
                                                          src={news.imageURL}
@@ -160,6 +161,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                    )}
 
                                                    <label>Latest News</label>
+                                                   </>
                                                 </Link>
                                              </div>
 
@@ -224,16 +226,15 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
 
                                                 {/* CTA */}
                                                 <Link
-   href={`${
-      news.btnIsRedirect ? news.url : `Blogs/${news.slug.current}`
-   }`}
-   target={`${news.btnIsRedirect ? "_blank" : ""}`}
-   className="btn btn-secondary"
->
-   <span>Read More</span>
-   <i className="bi bi-arrow-up-right-circle"></i>
-</Link>
-
+                                                   href={`${
+                                                      news.btnIsRedirect ? news.url : `Blogs/${news.slug.current}`
+                                                   }`}
+                                                   target={`${news.btnIsRedirect ? "_blank" : ""}`}
+                                                   className="btn btn-secondary"
+                                                >
+                                                   <span>Read More</span>
+                                                   <i className="bi bi-arrow-up-right-circle"></i>
+                                                </Link>
                                              </div>
                                           </div>
                                        </>
@@ -460,10 +461,7 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
                                                                         }`}
                                                                         className="btn btn-secondary"
                                                                      >
-                                                                        <span>
-                                                                           Read
-                                                                           More
-                                                                        </span>
+                                                                        <span>Read More</span>
                                                                         <i className="bi bi-arrow-up-right-circle"></i>
                                                                      </Link>
                                                                   </SwiperSlide>
@@ -584,16 +582,15 @@ const NewsHero = ({ newsPageData }: { newsPageData: any }) => {
 
                                        {/* CTA */}
                                        <Link
-   href={`${
-      news.btnIsRedirect ? news.url : `Blogs/${news.slug.current}`
-   }`}
-   target={`${news.btnIsRedirect ? "_blank" : ""}`}
-   className="btn btn-secondary"
->
-   <span>Read More</span>
-   <i className="bi bi-arrow-up-right-circle"></i>
-</Link>
-
+                                          href={`${
+                                             news.btnIsRedirect ? news.url : `Blogs/${news.slug.current}`
+                                          }`}
+                                          target={`${news.btnIsRedirect ? "_blank" : ""}`}
+                                          className="btn btn-secondary"
+                                       >
+                                          <span>Read More</span>
+                                          <i className="bi bi-arrow-up-right-circle"></i>
+                                       </Link>
                                     </div>
                                  </>
                               );
