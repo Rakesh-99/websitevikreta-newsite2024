@@ -250,13 +250,15 @@
 }
 
 .sub {
-   color: #ffd600;
-   font-family: 'Roboto', sans-serif !important;;
-   font-size: 14px;
-   align-self: stretch;
-   font-style: normal;
-   font-weight: 400;
-   line-height: normal;
+   color: #ffd600 !important;
+   font-family: 'Roboto', sans-serif !important;
+   font-size: 14px !important;
+   align-self: stretch !important;
+   font-style: normal !important;
+   font-weight: 400 !important;
+   line-height: normal !important;
+   text-align: left !important; /* Ensure content is left-aligned */
+   margin-top: 4px !important; /* Add space between this and the content above */
 }
 .content1{
    display: none;
