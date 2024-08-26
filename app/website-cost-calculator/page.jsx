@@ -18,7 +18,7 @@ import toast from "react-hot-toast";
 import emailjs from "emailjs-com";
 import ReactFlagsSelect from "react-flags-select";
 import ThankYou from "../../components/OrderPlaced";
-//import 'react-phone-input-2/lib/style.css';
+import 'react-phone-input-2/lib/style.css';
 // import Summary from "../components/Summary";
 
 const Calculator = () => {
@@ -1206,7 +1206,7 @@ const Calculator = () => {
                               country={countryCode}
                               value={mobile}
                               onChange={(phone) => setMobile(phone)}
-                              inputClass="form-control"
+                              inputClass="form-control" 
                               placeholder="Your Contact Number"
                             />
                             <span className="error">
@@ -1507,7 +1507,7 @@ const Calculator = () => {
                                 country={countryCode}
                                 value={mobile}
                                 onChange={(phone) => setMobile(phone)}
-                                inputClass="form-control"
+                                inputClass="react-tel-input"
                                 placeholder="Your Contact Number"
                               />
                               <span className="error">
