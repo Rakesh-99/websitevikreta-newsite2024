@@ -22,6 +22,7 @@ const HeroSection = () => {
       autoplay: true,
       autoplaySpeed: 4000,
    };
+   
    return (
       <section className="hero">
          <div className="container">

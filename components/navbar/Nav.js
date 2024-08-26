@@ -72,29 +72,20 @@ const Nav = () => {
                            Our Services
                         </ScrollLink>
                      </li>
-                     <li className="nav-item">
-                        <Link href="/" onClick={toggleDropdown}>
-                           <div className={`navDropdown ${dropdownVisible ? 'show' : ''}`}>
-                              <input
-                                 type="checkbox"
-                                 className="navDropdownCheckbox"
-                                 id="dropdownCheckbox"
-                              />
-                              <label htmlFor="dropdownCheckbox" className="navDropdownLabel">
-                                 <span> Calculator </span>
-                                 <i className="bi bi-chevron-down"></i>
-                              </label>
-                              <div className="navDropdownMenu">
-                                 <ul>
-                                    <li>
-                                       <Link href="/website-cost-calculator" onClick={handleLinkClick}>
-                                          Website Cost Calculator
-                                       </Link>
-                                    </li>
-                                 </ul>
-                              </div>
+                     <li className="nav-item" onClick={toggleDropdown}>
+                        <div className={`navDropdown ${dropdownVisible ? 'show' : ''}`}>
+                           <span>Calculator</span>
+                           <i className="bi bi-chevron-down"></i>
+                           <div className="navDropdownMenu">
+                              <ul>
+                                 <li>
+                                    <Link href="/website-cost-calculator" onClick={handleLinkClick}>
+                                       Website Cost Calculator
+                                    </Link>
+                                 </li>
+                              </ul>
                            </div>
-                        </Link>
+                        </div>
                      </li>
                      <li className="nav-item"><Link href="/work">Our Work</Link></li>
                      <li className="nav-item"><Link href="/contactus">Contact Us</Link></li>
