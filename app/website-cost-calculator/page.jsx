@@ -56,6 +56,14 @@ const Calculator = () => {
   const questions = calData();
   const curr = currancy();
   const countryNames = countries();
+  const handleScrollToCalculate = (e) => {
+    e.preventDefault();
+    const element = document.getElementById("calculate");
+    window.scrollTo({
+      top: element.offsetTop,
+      behavior: "smooth",
+    });
+  };
 
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const first = curr.find((item) => item.name === "USD")?.flag;
@@ -921,7 +929,7 @@ const Calculator = () => {
               </div>
               {!isSubmitted && (
                 <div className="button-group">
-                  <Link href="#calculate" className="normal-btn primary">
+                  <Link href="#calculate" className="normal-btn primary"onClick={handleScrollToCalculate}>
                     <span>Get Started Now</span>
                     <i className="bi bi-arrow-right"></i>
                   </Link>
@@ -942,7 +950,7 @@ const Calculator = () => {
                 </div>
                 {!isSubmitted && (
                   <div className="button-group">
-                    <Link href="#calculate" className="normal-btn primary">
+                    <Link href="#calculate" className="normal-btn primary"onClick={handleScrollToCalculate}>
                       <span>Get Started Now</span>
                       <i className="bi bi-arrow-right"></i>
                     </Link>
