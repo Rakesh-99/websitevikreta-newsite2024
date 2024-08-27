@@ -170,6 +170,12 @@ export default defineType({
       ],
     }),
     defineField({
+      name: "isActive",
+      title: "Is Active",
+      type: "boolean",
+      initialValue: true,
+    }),
+    defineField({
       name: "reviews",
       title: "What People Say About This Gig",
       type: "array",
