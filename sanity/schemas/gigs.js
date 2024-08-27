@@ -46,7 +46,6 @@ export default defineType({
       title: "Rating",
       type: "string",
     }),
-    // New fields for the page details
     defineField({
       name: "aboutThisGig",
       title: "About This Gig",

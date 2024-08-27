@@ -967,8 +967,35 @@
          font-weight: 400;
          line-height: normal;
       }
-    }      
+    }  
+    
+    //client page
+
+.client-heading h1{
+   font-size: 45px !important;
 }
+.client-heading span{
+   font-size: 45px !important;
+}
+.client-hero .sub{
+   font-size: 20px !important;
+}
+.clients h1{
+   font-size: 30px !important;
+}
+.clients .img{
+   justify-content: center !important;
+}
+.views .heading h1{
+   font-size: 30px !important;
+}
+.views .client-testimonials{
+   flex-wrap: wrap;
+}
+
+}
+
+
 
 @media screen and (max-width: 500px) {
    .container {
