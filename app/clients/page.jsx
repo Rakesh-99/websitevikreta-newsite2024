@@ -48,6 +48,10 @@ const Clients = () => {
     document.title = "Clients";
   }, []);
 
+  if (!clientData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <motion.div
       exit="exit"

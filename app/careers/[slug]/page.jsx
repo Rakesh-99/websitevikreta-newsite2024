@@ -74,6 +74,14 @@ const CareerDetails = () => {
     }
   };
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!career) {
+    return <p>Career not found</p>;
+  }
+
   return (
     <motion.div
       exit="exit"
