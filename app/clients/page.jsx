@@ -110,19 +110,22 @@ const Clients = () => {
                 </div>
                 <div className="rectangle"></div>
                 <div className="client-testimonials">
-                  {clientData.map((client) =>
-                    client.testimonials.map((testimonial, index) => (
-                      <div className="testimonial" key={index}>
-                        <Image
-                          src={client_img}
-                          alt="Client Image"
-                          height={283}
-                        />
-                        <p className="date">{testimonial.date}</p>
-                        <p className="date">{testimonial.testimonial}</p>
-                        <p className="author">{testimonial.author}</p>
-                      </div>
-                    ))
+                  {clientData.map(
+                    (client) =>
+                      client.testimonials &&
+                      client.testimonials.length > 0 &&
+                      client.testimonials.map((testimonial, index) => (
+                        <div className="testimonial" key={index}>
+                          <Image
+                            src={client_img}
+                            alt="Client Image"
+                            height={283}
+                          />
+                          <p className="date">{testimonial.date}</p>
+                          <p className="date">{testimonial.testimonial}</p>
+                          <p className="author">{testimonial.author}</p>
+                        </div>
+                      ))
                   )}
                 </div>
               </div>
