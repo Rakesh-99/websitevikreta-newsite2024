@@ -1,8 +1,7 @@
-// app/gigs/page.jsx
-
 import { client } from "../../sanity/lib/client"; // Adjust the path if needed
 import Image from "next/image";
 import gig1 from "../../assets/gig1.jpeg";
+import { urlFor } from "../../sanity/lib/image"; // Adjust import path if needed
 
 const styles = {
   pageContainer: {
@@ -192,6 +191,7 @@ const styles = {
 
 const GigsPage = async () => {
   const gigs = await fetchGigs();
+  //   console.log(gigs);
 
   return (
     <div style={styles.pageContainer}>
@@ -259,14 +259,16 @@ const GigsPage = async () => {
       <div style={styles.gigsContainer}>
         {gigs.map((gig) => (
           <div key={gig._id} style={styles.gigCard}>
-            <Image
-              src={urlFor(gig.image).width(500).height(220).url()} // Use a function to get the URL
-              alt={gig.title}
-              layout="responsive"
-              width={500} // Example width
-              height={300}
-              style={styles.gigImage}
-            />
+            <div style={styles.gigImageContainer}>
+              <Image
+                src={urlFor(gig.image).width(500).height(220).url()}
+                alt={gig.title}
+                layout="responsive"
+                width={500}
+                height={300}
+                style={styles.gigImage}
+              />
+            </div>
             <div style={styles.gigCardHeader}>
               <h3 style={styles.gigTitle}>{gig.title}</h3>
               <span style={styles.gigRating}>
@@ -277,7 +279,7 @@ const GigsPage = async () => {
             <p style={styles.gigDescription}>{gig.description}</p>
             <div style={styles.gigFooter}>
               <span style={styles.gigPrice}>{gig.price}</span>
-              <a href={gig.link} style={styles.readMore}>
+              <a href={`/gigs/${gig.link}`} style={styles.readMore}>
                 Read More
               </a>
             </div>
@@ -294,18 +296,14 @@ async function fetchGigs() {
     *[_type == "gig" && defined(_id) && !(_id in path("drafts.**"))]{
       _id,
       title,
-      image,
+      "image": images[0].asset->url,
       description,
       price,
       rating,
-      link
+      "link": slug.current
     }
   `);
-  console.log(gigs); // Debugging: Check the console to see the fetched data
   return gigs;
 }
-
-// Function to get the URL from Sanity image asset
-import { urlFor } from "../../sanity/lib/image"; // Adjust import path if needed
 
 export default GigsPage;

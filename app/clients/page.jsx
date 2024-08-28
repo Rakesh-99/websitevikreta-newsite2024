@@ -49,7 +49,7 @@ const Clients = () => {
   }, []);
 
   if (!clientData) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   return (

@@ -75,11 +75,11 @@ const CareerDetails = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p></p>;
   }
 
   if (!career) {
-    return <p>Career not found</p>;
+    return <p></p>;
   }
 
   return (
