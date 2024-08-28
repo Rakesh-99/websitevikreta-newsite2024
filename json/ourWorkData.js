@@ -60,6 +60,7 @@ import iEndorse6 from "../assets/Work/iEndorse/iEndorse-06.jpg"
 
 // StrandzBoost WebApp
 import StrandzBoostLogo from "../assets/Work/StrandzBoost/logo-short.png"
+import Strandzthunbnill from "../assets/Work/StrandzBoost/thumbnill.png"
 
 
 
@@ -356,7 +357,7 @@ export const workData = [
    {
       id: 6,
       url: "/work/StrandzBoost",
-      thumbnail: "",
+      thumbnail: Strandzthunbnill,
       logo: StrandzBoostLogo,
       title: "Web Application Developed for Medical Survey Platform StrandzBoost",
       niche: ["Laravel", "Surveys", "Forms", "Web Development", "Content Management System", "User Authentication", "Responsive Design"],
@@ -365,7 +366,13 @@ export const workData = [
          { key: " Website", value: "https://www.strandzboost.com/" },
          { key: "CMS", value: "https://strandzboost.com/studio" }
       ],
+      video: [
+
+      {key:"gallery", value:"https://youtu.be/xcJtL7QggTI?si=xW4JDvx04X8EIHVj"}
+      ],
+
       gallery: [
+         Strandzthunbnill
       ],
       shortDescription: "",
       description: ``,

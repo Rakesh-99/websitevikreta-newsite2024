@@ -1,7 +1,8 @@
+"use client"
 import Slider from "react-slick";
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Quote from '../assets/Quote.jsx';
+import Quote from '../assets/Quote.svg';  // Import as image source
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { fetchTestimonials } from '../sanity/lib/client';
@@ -64,7 +65,8 @@ const TestimonialSection = () => {
           <Slider {...settings} className="testimonial-slider" ref={customeSlider}>
             {testimonials.map((test) => (
               <div className="card" key={test._id}>
-                <Quote alt="quote svg" className="quote" />
+                {/* Use SVG as an image */}
+                <Image src={Quote} alt="quote svg" className="quote" />
                 <p className="review">{test.review}</p>
                 <div className="group">
                   <div className="user">

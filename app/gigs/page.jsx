@@ -119,7 +119,7 @@ const styles = {
       paddingRight:'0.5rem',
    },
    gigCard: {
-      border: '1px solid #d3d3d3', // Light grey outline
+      border: '1px solid #444445', // Light grey outline
       borderRadius: '0',
       padding: '1rem',
       background: '#2b2b2b', // Matching the default website background
@@ -267,7 +267,7 @@ const GigsPage = async () => {
                   />
                   <div style={styles.gigCardHeader}>
                      <h3 style={styles.gigTitle}>{gig.title}</h3>
-                     <span style={styles.gigRating}>{gig.rating}</span>
+                     <span style={styles.gigRating}><i className="bi bi-star-fill"></i>{gig.rating}</span>
                   </div>
                   <p style={styles.gigDescription}>{gig.description}</p>
                   <div style={styles.gigFooter}>
