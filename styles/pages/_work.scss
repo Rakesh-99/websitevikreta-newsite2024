@@ -1,5 +1,6 @@
 .our-work {
    padding: 150px 0;
+   font-family: 'Roboto',sans-serif;
 
    .heading {
       @include flex-between;
@@ -8,6 +9,7 @@
       h2 {
          @include heading-font;
          white-space: nowrap;
+         font-family: 'Roboto',sans-serif;
       }
 
       .line {
@@ -38,6 +40,7 @@
          min-width: 70px;
          text-align: center;
          border: none;
+         font-family: 'Roboto',sans-serif;
 
          &:hover {
             background: $yellow;
@@ -48,6 +51,7 @@
       .active-button{
          background: $yellow;
          @include dark-color(dark);
+         font-family: 'Roboto',sans-serif;
       }
    }
 
@@ -82,6 +86,7 @@
                   padding: 3px 5px;
                   @include font-weight(light);
                   font-size: 0.8rem;
+                  font-family: 'Roboto',sans-serif;
                }
             }
    
@@ -90,6 +95,7 @@
             color:  #ffffff;
             line-height: 130%;
             @include font-weight(regular);
+            font-family: 'Roboto',sans-serif;
          }
 
          .project-para {
@@ -98,6 +104,7 @@
             font-size: 0.9rem;
             min-height: 50px;
             opacity: 0.95;
+            font-family: 'Roboto',sans-serif;
 
             // flex: 1; line clamp works only with block element
          
@@ -231,6 +238,7 @@
       .project-heading {
          @include heading-font;
          font-size: 2rem;
+         font-family: 'Roboto',sans-serif;
       }
    }
 
@@ -242,6 +250,7 @@
 
       a {
          font-size: 0.9rem;
+         font-family: 'Roboto',sans-serif;
       }
    }
 
@@ -255,6 +264,7 @@
       p {
          // text-indent: 1rem;
          text-align: justify;
+         font-family: 'Roboto',sans-serif;
       }
 
       b {
@@ -269,6 +279,7 @@
          display: flex;
          gap: 0.5rem;
          margin: 5px 0;
+         font-family: 'Roboto',sans-serif;
 
          i {
             color: $yellow;
@@ -317,6 +328,7 @@
             white-space: nowrap;
             @include heading-font;
             font-size: 1.7rem;
+            font-family: 'Roboto',sans-serif;
          }
 
          ul {
@@ -343,12 +355,14 @@
             font-size: 1.1rem;
             color: $yellow;
             @include font-weight(regular);
+            font-family: 'Roboto',sans-serif;
          }
 
          p {
             font-style: italic;
             @include font-weight(light);
             margin-top: 0.25rem;
+            font-family: 'Roboto',sans-serif;
          }
       }
    }

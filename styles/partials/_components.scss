@@ -10,6 +10,7 @@
    z-index: 1000;
    transition: 0.35s ease-out;
    border-bottom: 1px solid transparent;
+   font-family: 'Roboto',sans-serif;
 
 
    // making navbar flex
@@ -184,6 +185,8 @@ body.navbar-cta-show .navbar-cta {
    transition: visibility 0s, opacity 0.35s ease-out;
    visibility: hidden;
    opacity: 0;
+   font-family: 'Roboto',sans-serif;
+   
  
    &.show {
      visibility: visible;
@@ -322,6 +325,7 @@ body.navbar-cta-show .navbar-cta {
    overflow: hidden;
    @include font-weight(medium);
    transition: 0.35s ease-in-out;
+   font-family: 'Roboto',sans-serif;
 
    &:hover {
       transition-delay: 0.3s;

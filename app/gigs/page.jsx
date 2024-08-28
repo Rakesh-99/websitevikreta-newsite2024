@@ -1,23 +1,24 @@
 // app/gigs/page.jsx
+
 import { client } from '../../sanity/lib/client'; // Adjust the path if needed
 import { FaSearch } from 'react-icons/fa'; // Import search icon from react-icons
-// app/gigs/page.jsx
-
 import Image from 'next/image';
 import gig1 from '../../assets/gig1.jpeg'
 
 const styles = {
    pageContainer: {
       marginTop: '60px',
+      fontFamily: 'Roboto, sans-serif',
    },
    searchContainer: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      //backgroundColor: '#000',
       padding: '1rem',
       width: '100%',
       position: 'relative',
+      fontFamily: 'Roboto, sans-serif',
+      marginTop: '6rem'
    },
    searchBar: {
       width: '100%',
@@ -34,7 +35,7 @@ const styles = {
    },
    searchIcon: {
       position: 'absolute',
-      right: '30rem',
+      right: '470px', // Adjusted from 30rem to 30px
       top: '50%',
       transform: 'translateY(-50%)',
       fontSize: '1.2rem',
@@ -44,12 +45,13 @@ const styles = {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      //backgroundColor: '#000',
       padding: '1rem',
       width: '100%',
       color: '#fff',
-      fontSize: '1rem',
+      fontSize: '1.12rem',
       fontFamily: 'Roboto, sans-serif',
+      maxWidth: '1590px',
+      
    },
    category: {
       margin: '0 0.5rem',
@@ -67,13 +69,12 @@ const styles = {
       margin: '2rem auto',
       width: '70%',
       height: '200px',
-      maxWidth: '1200px', // Set a max width to control size
+      maxWidth: '1200px',
       overflow: 'hidden',
    },
    gigbg: {
-      width: '2px', // Set desired width
-      height: '2px', // Set desired height
-      //objectfit: cover, // Ensure proper fit
+      width: '100%', // Changed to fit container width
+      height: 'auto', // Adjusted to maintain aspect ratio
    },
    overlayText: {
       position: 'absolute',
@@ -114,24 +115,80 @@ const styles = {
       gap: '1rem',
       padding: '1rem',
       fontFamily: 'Roboto, sans-serif',
+      padding:'6rem',
+      paddingRight:'0.5rem',
    },
    gigCard: {
-      border: '1px solid #ccc',
-      borderRadius: '8px',
+      border: '1px solid #d3d3d3', // Light grey outline
+      borderRadius: '0',
       padding: '1rem',
-      textAlign: 'center',
-      width: 'calc(33.333% - 1rem)',
-      background: '#fff',
+      background: '#2b2b2b', // Matching the default website background
       fontFamily: 'Roboto, sans-serif',
+      width: 'calc(33.333% - 2.5rem)', // Adjusted width to match initial size
+      maxHeight: '380px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.5rem',
+      font: 'Roboto',
+   },
+   gigCardHeader: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+   },
+   gigTitle: {
+      fontWeight: 'bold',
+      fontSize: '1.25rem',
+      margin: '0',
+   },
+   gigRating: {
+      fontWeight: 'bold',
+      fontSize: '1.25rem',
+   },
+   gigDescription: {
+      margin: '0.5rem 0',
+   },
+   gigFooter: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      background: '#4a4949', // Light grey background
+      padding: '0.5rem',
+      borderRadius: '4px',
+   },
+   gigPrice: {
+      margin: '0',
+   },
+   gigImageContainer: {
+      position: 'relative',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      maxWidth: '350px', // Adjusted width
+      height: '200px', // Fixed height
+      overflow: 'hidden',
+      borderRadius: '8px',
+      border: '1px solid #d3d3d3', // Optional border
    },
    gigImage: {
-      borderRadius: '8px',
-      maxWidth: '100%',
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover', // Ensures the image covers the container without distortion
    },
    readMore: {
-      color: '#0070f3',
+      backgroundColor: '#2b2b2b', // Background color same as footer
+      color: '#fff', // Text color to contrast with the background
+      border: '1px solid #4a4949', // Border color same as background
+      borderRadius: '4px',
+      padding: '0.25rem 0.5rem', // Adjust padding to make it small and rectangular
       textDecoration: 'none',
       fontWeight: 'bold',
+      fontSize: '0.875rem', // Smaller font size for a button-like appearance
+      cursor: 'pointer',
+      display: 'inline-block', // Ensures the element only takes up as much width as its content
+      textAlign: 'center', // Center the text inside the button
+      fontFamily: 'Roboto, sans-serif',
    },
 };
 
@@ -200,12 +257,23 @@ const GigsPage = async () => {
          <div style={styles.gigsContainer}>
             {gigs.map((gig) => (
                <div key={gig._id} style={styles.gigCard}>
-                  <Image src={gig.image} alt={gig.title} layout="responsive" width={400} height={300} />
-                  <h3>{gig.title}</h3>
-                  <p>{gig.description}</p>
-                  <p>From {gig.price}</p>
-                  <p>{gig.rating}</p>
-                  <a href={gig.link} style={styles.readMore}>Read More</a>
+                  <Image 
+                     src={urlFor(gig.image).width(500).height(220).url()} // Use a function to get the URL
+                     alt={gig.title}
+                     layout="responsive"
+                     width={500} // Example width
+                     height={300} 
+                     style={styles.gigImage}
+                  />
+                  <div style={styles.gigCardHeader}>
+                     <h3 style={styles.gigTitle}>{gig.title}</h3>
+                     <span style={styles.gigRating}>{gig.rating}</span>
+                  </div>
+                  <p style={styles.gigDescription}>{gig.description}</p>
+                  <div style={styles.gigFooter}>
+                     <span style={styles.gigPrice}>{gig.price}</span>
+                     <a href={gig.link} style={styles.readMore}>Read More</a>
+                  </div>
                </div>
             ))}
          </div>
@@ -216,7 +284,7 @@ const GigsPage = async () => {
 // Fetch gigs from Sanity
 async function fetchGigs() {
    const gigs = await client.fetch(`
-    *[_type == "gig"]{
+    *[_type == "gig" && defined(_id) && !(_id in path("drafts.**"))]{
       _id,
       title,
       image,
@@ -229,5 +297,8 @@ async function fetchGigs() {
    console.log(gigs); // Debugging: Check the console to see the fetched data
    return gigs;
 }
+
+// Function to get the URL from Sanity image asset
+import { urlFor } from '../../sanity/lib/image'; // Adjust import path if needed
 
 export default GigsPage;

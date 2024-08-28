@@ -1,6 +1,7 @@
 import { createClient } from 'next-sanity';
 
 import { apiVersion, dataset, projectId } from '../env';
+import imageUrlBuilder from '@sanity/image-url';
 
 export const client = createClient({
   projectId,
@@ -42,6 +43,13 @@ export async function fetchGigs() {
   }`;
   const gigs = await client.fetch(query);
   return gigs;
+
+}
+
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source) {
+return builder.image(source);
 }
 
 
