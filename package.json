@@ -19,6 +19,7 @@
     "emailjs-com": "^3.2.0",
     "framer-motion": "^11.2.12",
     "html-react-parser": "^5.1.10",
+    "intersection-observer": "^0.12.2",
     "ipapi.co": "^0.3.0",
     "isotope-layout": "^3.0.6",
     "libphonenumber-js": "^1.11.4",

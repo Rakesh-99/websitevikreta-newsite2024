@@ -35,7 +35,7 @@ export async function fetchGigs() {
   const query = `*[_type == "gig"]{
     _id,
     title,
-    image,
+    images[0],
     description,
     price,
     rating,

@@ -42,6 +42,14 @@ const Footer = () => {
                         <i className="icon bi bi-chevron-right"></i>
                         <Link href="/contactus">Contact Us</Link>
                      </span>
+                     <span className="link">
+                        <i className="icon bi bi-chevron-right"></i>
+                        <Link href="/">Clients</Link>
+                     </span>
+                     <span className="link">
+                        <i className="icon bi bi-chevron-right"></i>
+                        <Link href="/contactus">Careers</Link>
+                     </span>
                   </div>
 
                   <div className="social-media">

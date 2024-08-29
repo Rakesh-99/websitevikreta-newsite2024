@@ -74,7 +74,7 @@ const Nav = () => {
                      </li>
                      <li className="nav-item" onClick={toggleDropdown}>
                         <div className={`navDropdown ${dropdownVisible ? 'show' : ''}`}>
-                           <span>Calculator</span>
+                           <span>Calculator </span>
                            <i className="bi bi-chevron-down"></i>
                            <div className="navDropdownMenu">
                               <ul>

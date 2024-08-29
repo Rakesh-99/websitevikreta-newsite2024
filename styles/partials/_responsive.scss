@@ -755,8 +755,14 @@
 
     .summary-mobile {
       transition: right 300ms ease-out;
+      position: fixed !important;
       display: none;
-      margin-top: -17%;
+      top: 1rem;
+      margin-top: 0;
+      bottom: auto; 
+      display: block; 
+      position: fixed;
+      z-index: 1000;
   }
 
 //   .form-container.hidden{
@@ -1127,4 +1133,111 @@
       padding: 0.5rem 1rem;
     }
 
+}
+
+//gigs
+/* Base Styles (if any) */
+
+/* For screens up to 1200px wide */
+@media (max-width: 1200px) {
+   .gigsContainer {
+      padding: 1rem;
+   }
+
+   .gigCard {
+      width: calc(33.33% - 1rem); // 3 cards per row
+      margin-bottom: 1rem; // Space between rows
+   }
+}
+
+/* For screens up to 992px wide */
+@media (max-width: 992px) {
+   .gigCard {
+      width: calc(50% - 1rem); // 2 cards per row
+   }
+}
+
+/* For screens up to 768px wide (tablets) */
+@media (max-width: 768px) {
+   .searchContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1rem;
+   }
+
+   .searchBar {
+      flex: 1;
+      padding: 0.5rem;
+      font-size: 0.875rem; // Smaller font size
+      margin-bottom: 1rem; // Space between search bar and icon
+   }
+
+   .searchIcon {
+      position: absolute; // Ensure it’s positioned relative to the parent container
+      right: 10px;
+      font-size: 1rem; // Adjust font size
+      top: 50%;
+      transform: translateY(-50%); // Center vertically
+   }
+
+   .categoriesContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+   }
+
+   .category-item {
+      margin: 0.5rem; // Space between categories
+      font-size: 0.9rem;
+   }
+
+   .imageContainer {
+      background-size: cover; // Ensure the background covers the container
+      background-position: center; // Center the image
+      position: relative;
+   }
+
+   .heading {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white; // Ensure text is readable
+      font-size: 1.2rem; // Adjust font size
+      text-align: center;
+      padding: 0 1rem;
+   }
+
+   .gigCard {
+      width: calc(100% - 1rem); // 1 card per row
+   }
+}
+
+/* For screens up to 480px wide (mobile) */
+@media (max-width: 480px) {
+   .searchBar {
+      padding: 0.5rem;
+      font-size: 0.75rem; // Smaller font size
+   }
+
+   .searchIcon {
+      font-size: 0.8rem; // Adjust font size for smaller screens
+      right: 10px; // Adjust positioning
+   }
+
+   .categoriesContainer {
+      font-size: 0.8rem; // Smaller font size
+      max-width: 100%; // Ensure container does not exceed screen width
+   }
+
+   .heading {
+      font-size: 1rem; // Scale down for mobile screens
+   }
+
+   .gigCard {
+      width: 100%; // Ensure full width for each card
+      padding: 0.5rem; // Adjust padding if needed
+   }
 }
