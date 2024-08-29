@@ -296,18 +296,15 @@ const GigsPage = () => {
      console.log('Loading more gigs...');
      if (hasMore) {
        const newGigs = await fetchGigs(offset, INITIAL_LIMIT);
-       console.log('New gigs:', newGigs); // Log new gigs
  
        if (newGigs.length > 0) {
          setGigs((prevGigs) => {
            const existingIds = new Set(prevGigs.map(gig => gig._id));
            const uniqueNewGigs = newGigs.filter(gig => !existingIds.has(gig._id));
-           console.log('Unique new gigs:', uniqueNewGigs); // Log unique new gigs
            return [...prevGigs, ...uniqueNewGigs];
          });
          setOffset((prevOffset) => prevOffset + INITIAL_LIMIT);
        } else {
-         console.log('No more gigs to load');
          setHasMore(false);
        }
      }
@@ -330,7 +327,6 @@ const GigsPage = () => {
      triggerOnce: false,
      threshold: 0.5,
      onChange: (inView) => {
-       console.log('In view:', inView); // Check if inView changes
        if (inView && hasMore) {
          loadMoreGigs();
        }
