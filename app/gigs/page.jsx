@@ -284,16 +284,16 @@ const GigsPage = () => {
            link
          }
        `);
-       console.log('Fetched gigs:', fetchedGigs); // Log the fetched gigs
+       //console.log('Fetched gigs:', fetchedGigs); // Log the fetched gigs
        return fetchedGigs;
      } catch (error) {
-       console.error('Error fetching gigs:', error);
+       //console.error('Error fetching gigs:', error);
        return [];
      }
    };
  
    const loadMoreGigs = useCallback(async () => {
-     console.log('Loading more gigs...');
+     //console.log('Loading more gigs...');
      if (hasMore) {
        const newGigs = await fetchGigs(offset, INITIAL_LIMIT);
  
