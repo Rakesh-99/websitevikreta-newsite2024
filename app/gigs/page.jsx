@@ -284,16 +284,13 @@ const GigsPage = () => {
            link
          }
        `);
-       //console.log('Fetched gigs:', fetchedGigs); // Log the fetched gigs
        return fetchedGigs;
      } catch (error) {
-       //console.error('Error fetching gigs:', error);
        return [];
      }
    };
  
    const loadMoreGigs = useCallback(async () => {
-     //console.log('Loading more gigs...');
      if (hasMore) {
        const newGigs = await fetchGigs(offset, INITIAL_LIMIT);
  
@@ -404,7 +401,7 @@ const GigsPage = () => {
                         src={imageUrl}
                         alt={gig.title}
                         layout="responsive"
-                        width={500} // Example width
+                        width={500} 
                         height={300} 
                         style={styles.gigImage}
                      />
