@@ -177,7 +177,7 @@ body.navbar-cta-show .navbar-cta {
    color: map-get($map: $black-colors, $key: dark);
    padding-block: 0.5rem;
    position: fixed;
-   top: 4.75rem; /* when navbar is up */
+   //top: 4.75rem; /* when navbar is up */
    left: 0;
    width: 100%;
    height: auto;
@@ -186,17 +186,21 @@ body.navbar-cta-show .navbar-cta {
    visibility: hidden;
    opacity: 0;
    font-family: 'Roboto',sans-serif;
+   top: -100px;
+   transition: top 0.5s ease, opacity 0.5s ease !important;
    
  
    &.show {
      visibility: visible;
      opacity: 1;
+     top: 4.75rem;
    }
  
    &.hide {
      visibility: hidden;
      opacity: 0;
-     display:none
+     display:none;
+     top: -100px;
    }
  
    .container {
@@ -229,8 +233,13 @@ body.navbar-cta-show .navbar-cta {
      right: 0;
      transform: translateY(-50%);
      cursor: pointer;
+
    }
- }
+   &:has(.close.hide) {
+      top: -25% !important;
+   }
+}
+ 
  
 // -----------------------------------------
 // Preload
