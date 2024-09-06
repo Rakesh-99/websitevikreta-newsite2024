@@ -3,11 +3,14 @@ import { client } from '../../sanity/lib/client'; // Adjust the path if needed
 import { FaSearch } from 'react-icons/fa'; // Import search icon from react-icons
 import Image from 'next/image';
 import gig1 from '../../assets/gig1.jpeg';
-import { useInView } from 'react-intersection-observer'; 
+
 import { useState, useEffect, useCallback } from 'react';
 
+import dynamic from 'next/dynamic';
+
+const useInView = dynamic(() => import('react-intersection-observer').then(mod => mod.useInView), { ssr: false });
+
 const INITIAL_LIMIT = 6;
-const LOAD_MORE_LIMIT = 6;
 
 const styles = {
    pageContainer: {
