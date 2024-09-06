@@ -177,7 +177,6 @@ body.navbar-cta-show .navbar-cta {
    color: map-get($map: $black-colors, $key: dark);
    padding-block: 0.5rem;
    position: fixed;
-   //top: 4.75rem; /* when navbar is up */
    left: 0;
    width: 100%;
    height: auto;
@@ -236,7 +235,7 @@ body.navbar-cta-show .navbar-cta {
 
    }
    &:has(.close.hide) {
-      top: -25% !important;
+      top: '-25%' !important;
    }
 }
  
