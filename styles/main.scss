@@ -1,5 +1,6 @@
 @import "./partials/variables";
 @import "./partials/mixins";
+@import "./tailwind.css";
 
 * {
    margin: 0;
@@ -60,6 +61,7 @@ img {
 @import "./pages/home";
 @import "./pages/contact";
 @import "./pages/work";
+
 // responsive
 @import "./partials/responsive";
 

@@ -1,6 +1,8 @@
 // -----------------------------------------
 // Navigation Bar
 // -----------------------------------------
+@import './mixins';
+
 .navbar {
    position: fixed;
    top: 0;
@@ -433,3 +435,345 @@ textarea {
       @include dark-color-bg(light);
    }
 }
+
+//search page
+.topsec{
+   position: relative;
+   top: 7rem;
+
+.related-searches-box {
+   display: flex;
+   gap: 2px;
+   width: 65%;
+   position: relative;
+   top: 2rem;
+   .box-shadow{
+   height: 30px;
+   width: 5px;
+   box-shadow: -2px 0 1px 0 #FFD600;
+   }
+
+ 
+ .related-searches-heading {
+   color: #D4D4D4;
+   font-family: Roboto;
+   font-size: 27px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: inherit;
+   /* Add any additional styles for h4 as needed */
+ }
+}
+ .placeholder{
+   position: relative;
+   left: 65%;
+  width: 35%;
+ }
+
+}
+
+// -----------------------------------------
+// Tags Component
+// -----------------------------------------
+
+.tag {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0.25rem;
+   border: 1px solid $yellow;
+   padding: 10px 20px;
+   @include font-weight(medium);
+   transition: 0.35s ease-in-out;
+ 
+   &.primary {
+     background: $yellow;
+     @include dark-color(dark);
+   }
+ 
+ }
+ 
+ // Heading component styles
+.headingn {
+   @include para-font();
+   @include heading-font();
+   &.headingxl {
+     @include heading-size(headingxl);
+   }
+   &.heading3xl {
+     @include heading-size(heading3xl);
+   }
+   &.heading5xl {
+     @include heading-size(heading5xl);
+   }
+   &.headingmd {
+     @include heading-size(headingmd);
+   }
+   &.blog_heading_3 {
+     @include heading-size(blog_heading_3);
+   }
+   &.blog_heading2 {
+     @include heading-size(blog_heading2);
+   }
+
+   
+ }
+ 
+ .input-label {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: text;
+   font-size: 18px;
+   border: 1px solid map-get($map: $black-colors, $key: light);
+   background-color: $light;
+   color: map-get($map: $black-colors, $key: dark); 
+ 
+   input {
+     border: none;
+     background: transparent;
+     width: 100%;
+     height: 100%;
+     font-size: 18px;
+     padding: 0;
+     margin: 0;
+   }
+ }
+ 
+ // Shape styles
+ .input-square {
+   border-radius: 0;
+   height:4rem ;
+ }
+ 
+ // Variant styles
+ .input-fill-dark_3 {
+   background-color: map-get($map: $black-colors, $key: light);
+ }
+ 
+ // Size styles
+ .input-xs {
+   height: 46px;
+   padding-left: 16px;
+   padding-right: 22px;
+ }
+ 
+ .input-md {
+   height: 68px;
+   padding-left: 22px;
+   padding-right: 22px;
+ }
+
+ // TechBlogProfile.scss
+
+.tech-blog-profile {
+   height: 176px;
+   position: relative;
+   display: flex;
+   flex: 1;
+   align-items: center;
+   justify-content: center;
+ 
+   @media (max-width: 1050px) { // Adjust the breakpoint as needed
+     width: 100%;
+     flex: none;
+   }
+ }
+ 
+ .tech-blog-image {
+   width: 100%;
+   height: 176px;
+   object-fit: cover;
+   margin: 0 auto;
+ }
+ 
+ .tech-blog-heading {
+   position: absolute;
+   left: 0;
+   right: 0;
+   margin: auto;
+   text-align: center;
+   color: $yellow;
+ }
+ 
+ //blog texts
+ // Text component SCSS
+.textblogs {
+   &.text-white {
+     color: $light;
+   }
+   
+   &.font-roboto {
+     font-family: $primary-font;
+   }
+ 
+   &.text-xs { font-size: 7px; }
+   &.text-s { font-size: 14px; }
+   &.text-md { font-size: 16px; }
+   &.text-lg { font-size: 18px; }
+   &.text-xl { font-size: 20px; }
+ 
+   &.font-normal { font-weight: $font-weight-regular; }
+   &.not-italic { font-style: normal; }
+ 
+   @media (max-width: 768px) {
+     &.text-md { font-size: 13px; }
+     &.text-lg { font-size: 15px; }
+     &.text-xl { font-size: 17px; }
+   }
+ }
+
+/* components.scss */
+.textareablogs {
+   @include dark-color-bg(medium); 
+   border: 1px solid map-get($black-colors, dark);
+   border-radius: 0;
+   padding: 1rem; 
+   height: 178px; 
+   font-size: 18px; 
+   color: $light; 
+   resize: none; 
+ 
+   &.tarDark3 {
+     background-color: map-get($black-colors, dark);
+     border-color: map-get($black-colors, light);
+   }
+ 
+   &::placeholder {
+     color: $light;
+   }
+ }
+ 
+ 
+ //blogss
+ /* components.scss */
+
+/* Container and layout */
+.page-container {
+   @include flex-center;
+   flex-direction: column;
+   width: 100%;
+ }
+ 
+ .content-container {
+   margin-top: 28px;
+ }
+ 
+ .image-container {
+   position: relative;
+   width: 100%;
+   height: 500px;
+ 
+   img {
+      object-fit: cover;
+      width: 100%;
+     height: 100%;
+   }
+ }
+ 
+ .section {
+   @include flex-center;
+   flex-direction: column;
+   gap: 24px;
+   margin-bottom: 24px;
+ }
+ 
+ .heading1 {
+   @include heading-size(5xl);
+   line-height: 56px;
+   font-size: 38px;
+ }
+ 
+ .button-group {
+   @include flex-center(16);
+ 
+   .button {
+      
+     min-width: 70px;
+     border-radius: 5px;
+     border: 1px solid $yellow;
+     color: $light;
+   }
+ }
+ 
+ .text-paragraph {
+   font-size: 16px; // Adjust size as needed
+   line-height: 1.5;
+   line-height: 150%;
+ }
+ 
+ .card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   align-items: self-start;   
+   gap: 24px;
+ }
+ 
+ .card-heading {
+   @include heading-size(blog_heading2);
+ }
+ 
+ .card-text {
+   @include text-size(blog_para);
+   line-height: 150%;
+ }
+ 
+ .milestones {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   align-items: self-start;   
+   gap: 24px;
+ 
+   .milestone-heading {
+     @include heading-size(blog_heading_3);
+     color: $gray-50;
+   }
+ 
+   .milestone-text {
+      font-size: 16px; // Adjust size as needed
+      line-height: 1.5;
+           color: $gray-50;
+   }
+ 
+   .milestone-item {
+     @include flex-center(16);
+     flex-direction: column;
+     width: 100%;
+ 
+     .milestone-text {
+      font-size: 16px; // Adjust size as needed
+      line-height: 1.5;
+             color: $gray-50;
+     }
+   }
+ }
+ 
+ .conclusion {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   align-items: self-start;   
+   gap: 24px;
+   margin-top: 24px;
+ 
+   .conclusion-heading {
+      font-size: 24px; // Adjust size as needed
+      line-height: 1.3;   }
+ 
+   .conclusion-text {
+      font-size: 16px; // Adjust size as needed
+      line-height: 1.5;
+   }
+ 
+   .additional-info {
+      font-size: 16px; // Adjust size as needed
+      line-height: 1.5;
+           color: $gray-50;
+   }
+ }
+ 

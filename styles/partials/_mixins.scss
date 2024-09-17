@@ -79,3 +79,104 @@
       }
    }
 }
+
+// Heading mixins
+@mixin heading-size($size) {
+   @if $size == "blog_heading2" {
+     font-size: 32px;
+     @include font-weight(bold);
+   }
+   @else if $size == "blog_heading_3" {
+     font-size: 24px;
+     @include font-weight(bold);
+   }
+   @else if $size == "headingmd" {
+     font-size: 20px;
+     @include font-weight(black);
+   }
+   @else if $size == "headingxl" {
+     font-size: 24px;
+     @include font-weight(bold);
+   }
+   @else if $size == "heading3xl" {
+     font-size: 36px;
+     @include font-weight(bold);
+   }
+   @else if $size == "heading5xl" {
+     font-size: 48px;
+     @include font-weight(bold);
+   }
+ }
+/* mixins.scss */
+
+@mixin button-styles($border-color, $background-color, $text-color, $border-radius: 5px, $padding: 8px 16px) {
+   border: 1px solid $border-color;
+   background-color: $background-color;
+   color: $text-color;
+   border-radius: $border-radius;
+   padding: $padding;
+   text-align: center;
+   display: inline-block;
+   cursor: pointer;
+   transition: background-color 0.3s ease, border-color 0.3s ease;
+ 
+   &:hover {
+     background-color: darken($background-color, 10%);
+     border-color: darken($border-color, 10%);
+   }
+ }
+/* mixins.scss */
+
+@mixin text-size($size) {
+   @if $size == 'blog_para' {
+     font-size: 16px; // Adjust size as needed
+     line-height: 1.5;
+   } @else if $size == 'blog_heading2' {
+     font-size: 24px; // Adjust size as needed
+     line-height: 1.3;
+   } @else if $size == 'blog_heading_3' {
+     font-size: 20px; // Adjust size as needed
+     line-height: 1.4;
+   } @else {
+     @warn "Text size `#{$size}` is not defined.";
+   }
+ }
+  
+// // Mixins
+// @mixin heading-style($size) {
+//    @if $size == "heading5xl" {
+//      font-size: 56px;
+//      line-height: 56px;
+//    }
+//    @else if $size == "blog_heading2" {
+//      font-size: 28px;
+//    }
+//    @else if $size == "blog_heading_3" {
+//      font-size: 24px;
+//    }
+//    @else if $size == "headingmd" {
+//      font-size: 20px;
+//    }
+//    @else if $size == "heading3xl" {
+//      font-size: 32px;
+//    }
+//  }
+ 
+//  @mixin text-style($size) {
+//    @if $size == "blog_para" {
+//      font-size: 16px;
+//      line-height: 24px;
+//    }
+//    @else if $size == "texts" {
+//      font-size: 14px;
+//    }
+//  }
+ 
+//  @mixin button-style($min-width) {
+//    min-width: $min-width;
+//    border: 1px solid $black-600;
+//    border-radius: $border-radius;
+//    background-color: transparent;
+//    color: $black-900;
+//  }
+ 

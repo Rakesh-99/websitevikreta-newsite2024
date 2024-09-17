@@ -23,11 +23,11 @@ export async function getBlogPageData() {
                  _id,
                  _createdAt,
                  title,
-                 url,
                  slug,
                  categories[]->,
                  btnIsRedirect,
                  date,
+                 isNew,
                  description,
                  "imageURL": image.asset->url,
                  image
@@ -72,6 +72,22 @@ export async function getMiscPageData(slug: string) {
 
   );
 }
+ export async function getBlogData(slug: string){
+    const query=`
+    *[_type=='news' && slug.current=='${slug}']{
+        "CurrentSlug": slug.current,
+          title,
+          description,
+          content,
+          image,
+       
+           
+       }[0]`;
+       const data= await client.fetch(query);
+       return data;
+    
+}
+
 
 
 // #endregion

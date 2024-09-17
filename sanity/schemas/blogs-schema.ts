@@ -1,4 +1,4 @@
-const news = {
+const Blogs = {
    name: "news",
    title: "news",
    type: "document",
@@ -7,11 +7,6 @@ const news = {
          name: "title",
          title: "Title",
          type: "string",
-      },
-      {
-         name: "url",
-         title: "URL",
-         type: "url",
       },
       {
          name: "slug",
@@ -67,7 +62,13 @@ const news = {
          type: "array",
          of: [{ type: "block" }],
       },
+      {
+         name: "isNew",
+         title: "Is it a newly launched?",
+         type: "boolean",
+         initialValue: true,
+      },
    ],
 };
 
-export default news;
+export default Blogs;

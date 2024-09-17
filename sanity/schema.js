@@ -5,7 +5,7 @@ import { categoryType } from './schemaTypes/categoryType'; // If you're using ca
 import { postType } from './schemaTypes/postType'; // If you're using postType
 import { authorType } from './schemaTypes/authorType'; // If you're using authorType
 import Testimonial from './schemas/testimonial'; 
-import news from './schemas/news'; // Import the news schema
+import Blogs from './schemas/blogs-schema'; // Import the news schema
 import blogCategories from './schemas/blogCategories'; // Import the blogCategories schema
 
 export const schema = {
@@ -15,7 +15,7 @@ export const schema = {
     postType, 
     authorType,
     Testimonial,
-    news,
+    Blogs,
     blogCategories,
   ],
 };

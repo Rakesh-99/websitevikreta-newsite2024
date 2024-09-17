@@ -1,19 +1,63 @@
 // Fonts
-$primary-font: "Roboto",
-sans-serif;
+// _variables.scss
+// Fonts
+$primary-font: "Roboto", sans-serif;
 
 // Font weights
-$font-weight: ("thin" : 100,
-   "light": 300,
-   "regular": 400,
-   "medium": 500,
-   "bold": 700,
-   "black": 900);
+$font-weight: (
+  "thin": 100,
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+  "black": 900
+);
 
 // Colors
-$black-colors: ("dark": #222222,
-   "medium": #333333,
-   "light": #48484880);
+$black-colors: (
+  "dark": #222222,
+  "medium": #333333,
+  "light": #48484880
+);
 $light: #EEEEEE;
 $yellow: #FFD600;
 $orange: #F2994A;
+
+// Headings Sizes
+$heading-sizes: (
+  "blog_heading2": ("font-size": 32px, "font-weight": "bold"),
+  "blog_heading_3": ("font-size": 24px, "font-weight": "bold"),
+  "headingmd": ("font-size": 20px, "font-weight": "black"),
+  "headingxl": ("font-size": 24px, "font-weight": "bold"),
+  "heading3xl": ("font-size": 36px, "font-weight": "bold"),
+  "heading5xl": ("font-size": 48px, "font-weight": "bold")
+);
+
+//Colors
+$black-600: #656d76;
+$black-900: #000000;
+$blue-gray-50: #f1f1f1;
+$blue-gray-100-11: #d9d9d911;
+$blue-gray-100-19: #d9d9d919;
+$dark-3: #222222;
+$gray-50: #fafafa;
+$gray-200: #eeeeee;
+$gray-50-e5: #fafafae5;
+$gray-800-01: #484848;
+$gray-900-99: #22222299;
+$white-a700-cc: #ffffffcc;
+
+// Fonts
+$primary-font: "Roboto", sans-serif;
+
+// Font Weights
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Other Variables
+$border-radius: 5px;
+$shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.1);

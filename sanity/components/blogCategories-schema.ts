@@ -1,21 +1,24 @@
-import { defineType, defineField } from 'sanity';
-
-const blogCategories = defineType({
-  name: 'blogCategories',
-  title: 'Blog Categories',
-  type: 'document',
+const blogCategories = {
+  name: "blogCategories",
+  title: "Category",
+  type: "document",
   fields: [
-    defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-    }),
+     {
+        name: "categoryKey",
+        title: "Key",
+        type: "string",
+     },
+     {
+        name: "title",
+        title: "Title",
+        type: "string",
+     },
+     {
+        name: "description",
+        title: "Description",
+        type: "text",
+     },
   ],
-});
+};
 
 export default blogCategories;

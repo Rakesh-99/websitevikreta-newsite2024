@@ -2,11 +2,11 @@
 
 
 import blogCategories from "../components/blogCategories-schema";
-import news from "./blogs-schema";
+import Blogs from "./blogs-schema";
 
 const schemas = [
 
-   news,
+   Blogs,
 
    blogCategories,
 ];
