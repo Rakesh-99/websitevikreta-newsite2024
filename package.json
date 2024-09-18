@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@next/third-parties": "^14.2.4",
     "@portabletext/react": "^3.1.0",
     "@sanity/image-url": "^1.0.2",
@@ -21,16 +23,24 @@
     "express": "^4.19.2",
     "framer-motion": "^11.2.12",
     "html-react-parser": "^5.1.10",
+    "intersection-observer": "^0.12.2",
     "ipapi.co": "^0.3.0",
     "isotope-layout": "^3.0.6",
     "libphonenumber-js": "^1.11.4",
     "metadata": "^0.1.0",
+<<<<<<< HEAD
     "mongoose": "^8.5.4",
     "next": "14.2.4",
+=======
+    "next": "^14.2.5",
+>>>>>>> 56275c68ffd0d6ea85642bc83a3820fb1f9eea40
     "next-sanity": "^9.4.2",
     "prop-types": "^15.8.1",
     "react": "^18",
+    "react-flags-select": "^2.2.3",
     "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.3.0",
+    "react-lottie-player": "^2.1.0",
     "react-phone-input-2": "^2.15.1",
     "react-scroll": "^1.9.0",
     "react-slick": "^0.30.2",
@@ -50,6 +60,11 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.4",
+<<<<<<< HEAD
+=======
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+>>>>>>> 56275c68ffd0d6ea85642bc83a3820fb1f9eea40
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "globals": "^15.9.0",

@@ -1,64 +1,48 @@
-import Image from 'next/image';
-import Link from 'next/link'; 
-import errorImage from '../../assets/errorimage.png'; // Adjust path if necessary
+"use client";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import Lottie from 'react-lottie-player';
+import animationData from '../../assets/Animation404.json'; // Adjust path if necessary
 
 const Custom404 = () => {
+  const router = useRouter();
+  const [hasHistory, setHasHistory] = useState(false);
+
+  useEffect(() => {
+    // Check if there is history to go back to
+    setHasHistory(window.history.length > 1);
+  }, []);
+
   return (
-    <div style={styles.container}>
-      <Image
-        src={errorImage}
-        alt="Error Image"
-        width={300} // Adjusted width
-        height={200} // Adjusted height
-        style={styles.image}
+    <div className="custom-404-container">
+      <Lottie
+        loop
+        animationData={animationData}
+        play
+        style={{ width: 620, height: 450 }}
+        className="custom-404-animation"
       />
-      <h1 style={styles.heading}>Something went Wrong!</h1>
-      <p style={styles.description}>
+      <h1 className="custom-404-heading">Something went wrong!</h1>
+      <p className="custom-404-description">
         The page you are looking for was removed, renamed, or does not exist!
       </p>
-      <div style={styles.buttonContainer}>
-        <Link href="/" className="normal-btn primary">
-          Go back
-        </Link>
+      <div className="custom-404-button-container">
+        {hasHistory ? (
+          <Link href="javascript:history.back()" className="normal-btn primary">
+            <span className="arrow-icon">&#8592;</span> Go Back
+          </Link>
+        ) : (
+          <Link href="/" className="normal-btn primary">
+            <span className="arrow-icon">&#8592;</span> Go Back
+          </Link>
+        )}
         <Link href="/" className="normal-btn secondary">
-          Home 
+          Home
         </Link>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh', // Full viewport height
-    textAlign: 'center',
-    padding: '20px',
-    position: 'relative',
-  },
-  image: {
-    width: 'auto', // Let the width adjust automatically
-    height: 'auto', // Let the height adjust automatically
-    maxWidth: '100%', // Ensure it doesn't exceed the container width
-    marginBottom: '20px',
-  },
-  heading: {
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    marginBottom: '10px',
-  },
-  description: {
-    fontSize: '1.25rem',
-    marginBottom: '30px',
-  },
-  buttonContainer: {
-    display: 'flex',
-    flexDirection: 'row', // Display buttons side by side
-    gap: '10px', // Space between buttons
-  },
 };
 
 export default Custom404;

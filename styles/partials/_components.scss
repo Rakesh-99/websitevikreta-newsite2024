@@ -12,12 +12,13 @@
    z-index: 1000;
    transition: 0.35s ease-out;
    border-bottom: 1px solid transparent;
+   font-family: 'Roboto',sans-serif;
 
 
    // making navbar flex
    .container {
       @include flex-between;
-      padding: 1.5rem 0;
+      padding: 0.8rem 0;
    }
 
    #navToggle {
@@ -74,8 +75,85 @@
    .social-icons {
       margin-left: auto;
       gap: 1rem;
+
+      a{
+         @include flex-center;
+      }
    }
 }
+
+.nav-item {
+   position: relative; // Required for absolute positioning of the dropdown
+   display: inline-block; // Keeps nav items on the same line
+   white-space: nowrap; // Prevents text wrapping
+ }
+ .navDropdown {
+   padding-block: 1rem;
+ }
+
+ .navDropdownLabel {
+   width: auto;
+ }
+
+ .navDropdownMenu {
+   width: auto;
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   transform: translateX(-50%);
+   opacity: 0;
+   visibility: hidden;
+ }
+ .navDropdown:hover .navDropdownMenu {
+   position: absolute;
+   top: 50px;
+   opacity: 1;
+   visibility: visible;
+   height: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid $yellow;
+  }
+
+.navDropdown {
+  position: relative;
+}
+
+.navDropdownCheckbox {
+  display: none;
+}
+
+.navDropdownLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.navDropdownMenu {
+  overflow: hidden;
+  transition: height 0.3s ease;
+  background-color: rgba(40, 38, 38, 0.8);
+}
+
+.navDropdownMenu li {
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+  color: aliceblue;
+}
+
+.navDropdownMenu li a:hover {
+  color:($yellow) ; 
+}
+
+.dropdown-icon {
+   margin-left: 8px;
+   transition: transform 0.3s ease;
+   cursor: pointer;
+ }
+ 
+ //------------------------------------------------------------------------//
 
 body.scroll-down .navbar {
    transform: translate3d(0, -100%, 0);
@@ -101,7 +179,6 @@ body.navbar-cta-show .navbar-cta {
    color: map-get($map: $black-colors, $key: dark);
    padding-block: 0.5rem;
    position: fixed;
-   top: 4.75rem; /* when navbar is up */
    left: 0;
    width: 100%;
    height: auto;
@@ -109,16 +186,22 @@ body.navbar-cta-show .navbar-cta {
    transition: visibility 0s, opacity 0.35s ease-out;
    visibility: hidden;
    opacity: 0;
+   font-family: 'Roboto',sans-serif;
+   top: -100px;
+   transition: top 0.5s ease, opacity 0.5s ease !important;
+   
  
    &.show {
      visibility: visible;
      opacity: 1;
+     top: 4.75rem;
    }
  
    &.hide {
      visibility: hidden;
      opacity: 0;
-     display:none
+     display:none;
+     top: -100px;
    }
  
    .container {
@@ -151,8 +234,13 @@ body.navbar-cta-show .navbar-cta {
      right: 0;
      transform: translateY(-50%);
      cursor: pointer;
+
    }
- }
+   &:has(.close.hide) {
+      top: '-25%' !important;
+   }
+}
+ 
  
 // -----------------------------------------
 // Preload
@@ -247,6 +335,7 @@ body.navbar-cta-show .navbar-cta {
    overflow: hidden;
    @include font-weight(medium);
    transition: 0.35s ease-in-out;
+   font-family: 'Roboto',sans-serif;
 
    &:hover {
       transition-delay: 0.3s;

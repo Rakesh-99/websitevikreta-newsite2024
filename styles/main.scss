@@ -56,11 +56,22 @@ img {
 }
 
 @import "./partials/components";
+@import "./partials/customSelect.scss";
+@import "./partials/placeOrder";
+@import "./partials/mixins";
 
 // importing pages
 @import "./pages/home";
 @import "./pages/contact";
 @import "./pages/work";
+<<<<<<< HEAD
+=======
+@import "./pages/website-cost-calculator";
+@import "./pages/404.scss";
+@import "./pages/gigs.scss";
+@import "./pages/caeers";
+@import "./pages/client";
+>>>>>>> 56275c68ffd0d6ea85642bc83a3820fb1f9eea40
 
 // responsive
 @import "./partials/responsive";

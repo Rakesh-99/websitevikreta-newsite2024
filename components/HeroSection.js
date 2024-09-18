@@ -3,6 +3,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Image from 'next/image';
+import { Link as ScrollLink } from 'react-scroll';
+
 
 import HeroImage from "../assets/Hero Slider/Slide 1.jpg";
 import HeroImage2 from "../assets/Hero Slider/Slide 2.jpg";
@@ -22,6 +24,7 @@ const HeroSection = () => {
       autoplay: true,
       autoplaySpeed: 4000,
    };
+   
    return (
       <section className="hero">
          <div className="container">
@@ -44,8 +47,15 @@ const HeroSection = () => {
 
                <div className="button-group" >
                   <Link href={"/contactus"} className="awesome-link">Get a Quote</Link>
-                  <Link href={"/#aboutus"} className="awesome-link">Learn More</Link>
-               </div>
+                  <ScrollLink
+                  className="awesome-link"
+                           to="aboutus"
+                           smooth={true}
+                           duration={500}
+                           offset={-70} // Adjust based on your navbar height
+                        >
+                           Learn More
+                        </ScrollLink>               </div>
             </div>
             {/* right section */}
             <div className="hero-image">
