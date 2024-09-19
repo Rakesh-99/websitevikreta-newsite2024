@@ -2,6 +2,7 @@
 import { Inter } from "next/font/google";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Script from 'next/script'; // Import Script for Google Analytics
 import "./globals.css";
 import '../styles/main.scss';
 import { metadata } from "./metadata";
@@ -13,7 +14,6 @@ import GoTop from '../components/GoTop';
 
 import { navbarScroll } from '../utility/navbarScroll';
 import { navbarCTAScroll } from '../utility/navbarCTAScroll';
-import { GoogleAnalytics } from '@next/third-parties/google'; // Import Google Analytics
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,8 +44,21 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff"></meta> 
         <meta name="description" content={metadata.description} />
-        <GoogleAnalytics id="G-QN768NT1EF" />
-        
+
+        {/* Google Analytics Script */}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=G-QN768NT1EF`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QN768NT1EF', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+
+        {/* HubSpot Script */}
         <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/46829457.js"></script>
 
       </head>

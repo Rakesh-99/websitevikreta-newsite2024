@@ -1,6 +1,9 @@
 @import "./partials/variables";
 @import "./partials/mixins";
-@import "./tailwind.css";
+@import "./partials/components";
+@import "./partials/customSelect.scss";
+@import "./partials/placeOrder";
+@import "./tailwind.css"; // Import Tailwind after custom styles
 
 * {
    margin: 0;
@@ -55,34 +58,25 @@ img {
    pointer-events: none;
 }
 
-@import "./partials/components";
-@import "./partials/customSelect.scss";
-@import "./partials/placeOrder";
-@import "./partials/mixins";
-
 // importing pages
 @import "./pages/home";
 @import "./pages/contact";
 @import "./pages/work";
-<<<<<<< HEAD
-=======
 @import "./pages/website-cost-calculator";
 @import "./pages/404.scss";
 @import "./pages/gigs.scss";
-@import "./pages/caeers";
+@import "./pages/caeers"; // Fix typo: careers
 @import "./pages/client";
->>>>>>> 56275c68ffd0d6ea85642bc83a3820fb1f9eea40
 
-// responsive
+// responsive styles
 @import "./partials/responsive";
 
-
-// Specific styles for react-phone-input-2 to match form-control
+// Styles for react-phone-input-2
 .react-tel-input {
    .form-control {
       @include dark-color-bg(dark);
       color: $light;
-      border: 1px solid map-get($map: $black-colors, $key: light);
+      border: 1px solid map-get($black-colors, light);
       border-radius: 0;
       padding-left: 50px;
       width: 100%;
@@ -90,20 +84,20 @@ img {
    }
 
    .flag-dropdown {
-      background-color: map-get($map: $black-colors, $key: dark);
-      border: 1px solid map-get($map: $black-colors, $key: light);
+      background-color: map-get($black-colors, dark);
+      border: 1px solid map-get($black-colors, light);
       border-radius: 0;
    }
 
    .selected-flag {
-      background-color: map-get($map: $black-colors, $key: dark);
-      border: 1px solid map-get($map: $black-colors, $key: light);
+      background-color: map-get($black-colors, dark);
+      border: 1px solid map-get($black-colors, light);
       border-radius: 0;
 
       &:hover,
       &:focus,
       &:active {
-         background-color: map-get($map: $black-colors, $key: dark);
+         background-color: map-get($black-colors, dark);
       }
    }
 
@@ -112,27 +106,25 @@ img {
    }
 
    .country-list {
-      background-color: map-get($map: $black-colors, $key: light);
+      background-color: map-get($black-colors, light);
       color: $light;
 
       .country {
          &:hover {
-            background-color: map-get($map: $black-colors, $key: dark);
+            background-color: map-get($black-colors, dark);
          }
 
          &.highlight {
-            background-color: map-get(
-               $map: $black-colors,
-               $key: dark
-            ) !important;
+            background-color: map-get($black-colors, dark) !important;
          }
+
          .dial-code {
             color: $light;
          }
       }
 
       .selected-flag {
-         background-color: map-get($map: $black-colors, $key: dark);
+         background-color: map-get($black-colors, dark);
          color: $light;
       }
    }
