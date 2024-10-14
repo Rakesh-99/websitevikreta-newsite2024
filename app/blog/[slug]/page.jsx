@@ -11,7 +11,8 @@ export const metadata = {
 export default async function ShraddhablogpostredesignedPage({ params }) {
   const data = await getBlogData(params.slug);
 
-  return(
-    
-  <Page data={data} />);
+
+  return (
+
+    <Page data={data} />);
 }

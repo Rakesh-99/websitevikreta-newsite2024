@@ -1,6 +1,5 @@
 "use client"
 import { client } from '../../sanity/lib/client'; // Adjust the path if needed
-import { FaSearch } from 'react-icons/fa'; // Import search icon from react-icons
 import Image from 'next/image';
 import gig1 from '../../assets/gig1.jpeg';
 
@@ -39,7 +38,7 @@ const styles = {
       backgroundColor: '#000',
       outline: 'none',
       fontFamily: 'Roboto, sans-serif',
-      
+
    },
    searchIcon: {
       position: 'absolute',
@@ -60,7 +59,7 @@ const styles = {
       fontFamily: 'Roboto, sans-serif',
       maxWidth: '1520px',
       //paddingRight: '-7rem',
-      
+
    },
    category: {
       margin: '0 0.7rem',
@@ -80,7 +79,7 @@ const styles = {
       height: '250px',
       width: '1200px',
       overflow: 'hidden',
-      
+
    },
    gigbg: {
       width: '150%', // Changed to fit container width
@@ -127,9 +126,9 @@ const styles = {
       gap: '1rem',
       padding: '1rem',
       fontFamily: 'Roboto, sans-serif',
-      padding:'10rem',
-      paddingRight:'4.5rem',
-      top:'-40',
+      padding: '10rem',
+      paddingRight: '4.5rem',
+      top: '-40',
    },
    gigCard: {
       border: '1px solid #444445', // Light grey outline
@@ -157,7 +156,7 @@ const styles = {
    gigRating: {
       fontWeight: 'bold',
       fontSize: '1.25rem',
-      
+
    },
    starIcon: {
       color: '#f0db54', // Set color of the star to yellow
@@ -165,7 +164,7 @@ const styles = {
    },
    gigDescription: {
       margin: '0.5rem 0',
-      bottom:'1rem',
+      bottom: '1rem',
    },
    gigFooter: {
       display: 'flex',
@@ -273,10 +272,10 @@ const GigsPage = () => {
    const [gigs, setGigs] = useState([]);
    const [hasMore, setHasMore] = useState(true);
    const [offset, setOffset] = useState(0);
- 
+
    const fetchGigs = async (offset, limit) => {
-     try {
-       const fetchedGigs = await client.fetch(`
+      try {
+         const fetchedGigs = await client.fetch(`
          *[_type == "gig" || _id in path("drafts.**")] | order(_createdAt desc) [${offset}...${offset + limit}] {
            _id,
            title,
@@ -287,50 +286,50 @@ const GigsPage = () => {
            link
          }
        `);
-       return fetchedGigs;
-     } catch (error) {
-       return [];
-     }
+         return fetchedGigs;
+      } catch (error) {
+         return [];
+      }
    };
- 
+
    const loadMoreGigs = useCallback(async () => {
-     if (hasMore) {
-       const newGigs = await fetchGigs(offset, INITIAL_LIMIT);
- 
-       if (newGigs.length > 0) {
-         setGigs((prevGigs) => {
-           const existingIds = new Set(prevGigs.map(gig => gig._id));
-           const uniqueNewGigs = newGigs.filter(gig => !existingIds.has(gig._id));
-           return [...prevGigs, ...uniqueNewGigs];
-         });
-         setOffset((prevOffset) => prevOffset + INITIAL_LIMIT);
-       } else {
-         setHasMore(false);
-       }
-     }
+      if (hasMore) {
+         const newGigs = await fetchGigs(offset, INITIAL_LIMIT);
+
+         if (newGigs.length > 0) {
+            setGigs((prevGigs) => {
+               const existingIds = new Set(prevGigs.map(gig => gig._id));
+               const uniqueNewGigs = newGigs.filter(gig => !existingIds.has(gig._id));
+               return [...prevGigs, ...uniqueNewGigs];
+            });
+            setOffset((prevOffset) => prevOffset + INITIAL_LIMIT);
+         } else {
+            setHasMore(false);
+         }
+      }
    }, [offset, hasMore]);
- 
+
    useEffect(() => {
       const handleScroll = () => {
          const scrollPosition = window.innerHeight + window.scrollY;
          const bottom = document.documentElement.offsetHeight;
-     
+
          if (scrollPosition + 10 >= bottom) { // Trigger loading when close to bottom
-           loadMoreGigs();
+            loadMoreGigs();
          }
-       };
-     
-       window.addEventListener('scroll', handleScroll);
-       return () => window.removeEventListener('scroll', handleScroll);
-     }, []);
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+   }, []);
    const { ref: loadMoreRef, inView } = useInView({
-     triggerOnce: false,
-     threshold: 0.5,
-     onChange: (inView) => {
-       if (inView && hasMore) {
-         loadMoreGigs();
-       }
-     },
+      triggerOnce: false,
+      threshold: 0.5,
+      onChange: (inView) => {
+         if (inView && hasMore) {
+            loadMoreGigs();
+         }
+      },
    });
 
    return (
@@ -380,7 +379,7 @@ const GigsPage = () => {
                alt="Promotional"
                layout="responsive"
                className="gigbg"
-               width= {2000}
+               width={2000}
             />
             <div style={styles.overlayText}>
                <div style={styles.heading}>Discover fresh perspectives!</div>
@@ -400,12 +399,12 @@ const GigsPage = () => {
 
                return (
                   <div key={gig._id} style={styles.gigCard}>
-                     <Image 
+                     <Image
                         src={imageUrl}
                         alt={gig.title}
                         layout="responsive"
-                        width={500} 
-                        height={300} 
+                        width={500}
+                        height={300}
                         style={styles.gigImage}
                      />
                      <div style={styles.gigCardHeader}>
@@ -432,19 +431,19 @@ const GigsPage = () => {
 
 // Fetch gigs from Sanity
 //async function fetchGigs() {
-   //const gigs = await client.fetch(`
-    //*[_type == "gig" || _id in path("drafts.**")]{
-      //_id,
-      //title,
-      //images[0],
-      //description,
-      //price,
-      //rating,
-      //link
-    //}
-  //`);
-   //console.log(gigs); // Debugging: Check the console to see the fetched data
-   //return gigs;
+//const gigs = await client.fetch(`
+//*[_type == "gig" || _id in path("drafts.**")]{
+//_id,
+//title,
+//images[0],
+//description,
+//price,
+//rating,
+//link
+//}
+//`);
+//console.log(gigs); // Debugging: Check the console to see the fetched data
+//return gigs;
 //}
 
 

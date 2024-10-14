@@ -1,28 +1,3 @@
-// // "use client";
-
-// // export default function Page({ data }) {
-// //   return (
-// //     <div>
-// //       <h1>{data.title}</h1>
-
-// //       {/* Image Container */}
-// //       {data.image && (
-// //         <div style={{ position: "relative", width: "100%", height: "500px" }}>
-// //           <Image
-// //             src={urlFor(data.image).url()}
-// //             alt={data.image?.alt || "Blog Image"}
-// //             layout="fill"
-// //             objectFit="cover"
-// //           />
-// //         </div>
-// //       )}
-
-// //       {/* Render the Content */}
-// //       <PortableText value={data.content} />
-// //     </div>
-// //   );
-// // }
-
 "use client";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
@@ -40,7 +15,9 @@ import { TextArea } from "../../../components/Blogs/TextArea/index.jsx";
 import { SearchSVG } from "../../../components/Blogs/Input/close.jsx";
 import TechBlogProfile from "../../../components/Blogs/TechBlogProfile/index.jsx";
 import Link from "next/link";
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
 const techBlogCategories = [
   { userImage: "/images/prop.png", blogTitle: "Tech Blogs" },
   { userImage: "/images/prop.png", blogTitle: "Animation " },
@@ -92,7 +69,11 @@ const dropDownOptions = [
   { label: "Option2", value: "option2" },
   { label: "Option3", value: "option3" },
 ];
+
+
 export default function Page({ data }) {
+
+
   const [chipOptions, setChipOptions] = React.useState(() => [
     { value: 1, label: `Web Development` },
     { value: 2, label: `GenAI` },
@@ -107,6 +88,19 @@ export default function Page({ data }) {
   const [selectedChipOptions, setSelectedChipOptions] = React.useState([]);
   const [searchBarValue, setSearchBarValue] = React.useState("");
   const [menuOpen, setMenuOpen] = React.useState(false);
+  const [commentData, setCommentData] = useState([]);
+  const [replyCommentData, setReplyCommentData] = useState('')
+  const [showInputBox, setShowInputBox] = useState({});
+
+  const [formData, setFormData] = useState({
+    blogId: data._id,
+    username: '',
+    email: '',
+    commentbox: ''
+  })
+
+  const [formErrors, setFormErrors] = useState({});
+
 
   const handleSearch = () => {
     const searchQuery = searchBarValue.trim();
@@ -116,13 +110,201 @@ export default function Page({ data }) {
       window.open("/Search", "_self");
     }
   };
+
+
+
+  const inputChangeHandle = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+  }
+
+
+  // From validation : 
+
+  const formErrorHandler = (formData) => {
+
+    const error = {};
+    const regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    const { username, email, commentbox } = formData;
+
+
+    // Username validation 
+
+    if (!username) {
+      error.username = "Username is required!"
+    } else if (username.length < 2) {
+      error.username = "Username can not be less than "
+    }
+
+
+    // Email validation : 
+
+    if (!email) {
+      error.email = "Email is required!";
+    } else if (!regEx.test(email)) {
+      error.email = "Invalid email address!";
+    }
+
+    // Comment validation  
+
+    if (!commentbox) {
+      error.commentbox = "Comment field can not be empty!"
+    } else if (commentbox.length < 4) {
+      error.commentbox = "Comment field requires at least 4 charracters!"
+    }
+    return error;
+  }
+
+
+  // Create comment API : 
+
+  const createComment = async () => {
+
+    try {
+      const commentResponse = await fetch('/api/comment', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+      const result = await commentResponse.json();
+      console.log(result);
+
+      if (commentResponse.ok) {
+        setFormData({
+          blogId: data._id,
+          username: "",
+          email: "",
+          // contact: "",
+          commentbox: ""
+        })
+
+        // Show toast notification on success POST comment :
+
+        toast.success('Hurray!, Your comment has been added to the blog', {
+          position: "bottom-right",
+          style: {
+            border: '1px solid #713200',
+            padding: '16px',
+            backgroundColor: '#FFD600',
+          },
+        });
+
+      }
+      getComments();
+    } catch (error) {
+      console.log('Error -', error);
+    }
+  }
+
+
+  // Form Submission : 
+
+  const submitHandle = (e) => {
+    e.preventDefault();
+
+    const errors = formErrorHandler(formData);
+
+    if (Object.keys(errors).length === 0) {
+      // No validation error, proceed to API call : 
+      createComment();
+    } else {
+      // set errors to display in the form : 
+      setFormErrors(errors);
+    }
+  };
+
+
+
+  //  Fetching user comments : 
+  const getComments = async () => {
+    try {
+      const result = await fetch(`/api/comment/${data._id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      const response = await result.json();
+      setCommentData(response.comment);
+    } catch (error) {
+      console.log("Error -", error);
+    }
+  };
+
+  // Fetching the getComments only when the blogId changes : 
+  useEffect(() => {
+    getComments();
+  }, [data._id]);
+
+
+  // For toggling the reply input box :
+  const toggleInputBox = (commentId) => {
+    setShowInputBox((prevData) => ({
+      ...prevData,
+      [commentId]: !prevData[commentId]
+    }))
+  };
+
+  // This function runs when the value changes in reply input box :
+  const replyInputHandle = (e) => {
+    const { value } = e.target;
+    setReplyCommentData(value)
+  };
+
+  // Adding Admin's reply to the existing comment : 
+  const replyCommentFormHandler = async (e, commentId) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`/api/comment/reply-comment/${commentId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ reply: replyCommentData })
+      });
+      const result = await response.json();
+      console.log(result);
+
+
+      if (response.ok && commentId) {
+        setReplyCommentData('')
+
+        // Hiding the reply comment input box on the success response :
+        setShowInputBox((prevData) => {
+          const newData = { ...prevData };
+          delete newData[commentId];  // Remove the commentId key
+          return newData;
+        });
+      }
+
+      getComments();
+    } catch (error) {
+      console.log('Error -', error);
+    }
+  }
+
+  // Cancel button for reply comment input field : 
+
+  const hideInputField = (id) => {
+    setShowInputBox((prevData) => ({
+      ...prevData,
+      [id]: !prevData[id]
+    }))
+  };
+
   return (
     <div className="flex w-full flex-col items-center">
       <div className="container-xs mt-28 md:px-5">
         <div className="flex flex-col gap-4">
           <div>
             <Image
-              src={urlFor(data.image).url()}            
+              src={urlFor(data.image).url()}
               width={1288}
               height={400}
               alt="Robot Image"
@@ -163,7 +345,7 @@ export default function Page({ data }) {
                     </div>
                   </div>
                   <Text size="blog_para" as="p" className="leading-[150%]">
-                 {data.description} 
+                    {data.description}
                   </Text>
                 </div>
                 <div className="flex flex-col items-start justify-center gap-2.5">
@@ -399,128 +581,108 @@ export default function Page({ data }) {
               </div>
               <div className="flex flex-col gap-[22px]">
                 <div className="flex items-center gap-2.5">
-                  <div className="h-[30px] w-[5px]" />
-                  <Heading as="h4">Comments</Heading>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Text as="p" className="leading-[22px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Magna duis eu elementum et erat urna gravida. Felis viverra
-                    varius mattis mi placerat. Vitae eget non feugiat adipiscing
-                    aliquam. Tempor consequat eget massa pharetra libero ipsum
-                    sem.
-                  </Text>
-                  <div className="flex items-center md:flex-col">
-                    <div className="flex flex-1 flex-wrap items-center gap-[21px] md:self-stretch">
-                      <Heading size="headingmd" as="h5">
-                        John Doe
-                      </Heading>
-                      <Text size="texts" as="p" className="self-end">
-                        October 03, 2018 at 2:21pm
-                      </Text>
-                    </div>
-                    <div className="flex w-[42%] justify-center gap-2 self-end md:w-full md:self-auto">
-                      <div className="flex flex-1 items-center justify-end gap-[9px]">
-                        <Heart
-                          width={18}
-                          height={20}
-                          alt="Favorite Icon"
-                          className="h-[20px]"
-                        />
-                        <Text size="texts" as="p" className="!text-colors1">
-                          Like
-                        </Text>
-                      </div>
-                      <div className="flex items-center gap-[9px]">
-                        <ReplyAll
-                          width={18}
-                          height={20}
-                          alt="Question Icon"
-                          className="h-[20px]"
-                        />
-                        <Text size="texts" as="p" className="!text-colors1">
-                          Reply
-                        </Text>
-                      </div>
-                    </div>
+                  <div className="border-l-8 border-yellow-300 mb-10" >
+                    <Heading as="h4" className="ml-2">Comments</Heading>
                   </div>
                 </div>
-                <div className="flex items-center justify-center gap-2.5 md:flex-col">
-                  <div className="h-[100px] w-px md:h-px md:w-[100px]" />
-                  <div className="flex flex-1 flex-col gap-2 md:self-stretch">
-                    <Text as="p" className="leading-[22px]">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Magna duis eu elementum et erat urna gravida. Felis
-                      viverra varius mattis mi placerat. Vitae eget non feugiat
-                      adipiscing aliquam. Tempor consequat eget massa pharetra
-                      libero ipsum sem.
-                    </Text>
-                    <div className="flex items-center justify-center">
-                      <div className="flex flex-1 flex-wrap items-center gap-[21px]">
-                        <Heading size="headingmd" as="h5">
-                          John Doe
-                        </Heading>
-                        <Text size="texts" as="p" className="self-end">
-                          October 03, 2018 at 2:21pm
-                        </Text>
-                      </div>
-                      <div className="flex items-center gap-2 self-end px-4">
-                        <Heart
-                          width={20}
-                          height={20}
-                          alt="Additional Favorite Icon"
-                          className="h-[20px] w-[20px]"
-                        />
-                        <Text size="texts" as="p" className="!text-colors1">
-                          Like
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Text as="p" className="leading-[22px]">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Magna duis eu elementum et erat urna gravida. Felis viverra
-                    varius mattis mi placerat. Vitae eget non feugiat adipiscing
-                    aliquam. Tempor consequat eget massa pharetra libero ipsum
-                    sem.
-                  </Text>
-                  <div className="flex items-center md:flex-col">
-                    <div className="flex flex-1 flex-wrap items-center gap-[21px] md:self-stretch">
-                      <Heading size="headingmd" as="h5">
-                        John Doe
-                      </Heading>
-                      <Text size="texts" as="p" className="self-end">
-                        October 03, 2018 at 2:21pm
-                      </Text>
-                    </div>
-                    <div className="flex w-[42%] justify-center gap-2 self-end md:w-full md:self-auto">
-                      <div className="flex flex-1 items-center justify-end gap-[9px]">
-                        <Heart
-                          width={18}
-                          height={20}
-                          alt="More Favorite Icon"
-                          className="h-[20px]"
-                        />
-                        <Text size="texts" as="p" className="!text-colors1">
-                          Like
-                        </Text>
-                      </div>
-                      <div className="flex items-center gap-[9px]">
-                        <ReplyAll
-                          width={18}
-                          height={20}
-                          alt="More Question Icon"
-                          className="h-[20px]"
-                        />
-                        <Text size="texts" as="p" className="!text-colors1">
-                          Reply
-                        </Text>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+
+                {
+                  commentData && commentData.map((val, idx) => {
+
+                    const date = new Date(val.createdAt).toLocaleString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                      hour: 'numeric',
+                      minute: 'numeric',
+                      hour12: true
+                    })
+
+                    return (
+                      <>
+                        <div className="" key={idx}>
+                          {/* Main comment  */}
+
+                          <div>
+                            <p className="mb-3">{val.commentbox}</p>
+                          </div>
+
+                          <div className="flex justify-between items-end relative">
+                            {/* Date  */}
+                            <div className="flex items-center gap-2">
+                              <p className="font-bold">{val.username}</p>
+                              <p className="text-xs text-gray-400">{date}</p>
+                            </div>
+
+                            {/* reply button  */}
+                            <div
+                              onClick={() => toggleInputBox(val._id)}
+                              className="flex items-center cursor-pointer justify-end gap-[9px]">
+                              <ReplyAll
+                                width={18}
+                                height={20}
+                                alt="Question Icon"
+                                className="h-[20px]"
+                              />
+                              <Text size="texts" as="p" className="!text-colors1">
+                                Reply
+                              </Text>
+                            </div>
+                          </div>
+
+                          <div className="mt-3  ml-3">
+                            {/* Comment reply  */}
+                            {
+                              val && val.commentReplies.map((replies, idx) => {
+
+
+                                const date = new Date(replies.createdAt).toLocaleString('en-US', {
+                                  year: 'numeric',
+                                  month: 'long',
+                                  day: 'numeric',
+                                  hour: 'numeric',
+                                  minute: 'numeric',
+                                  hour12: true
+                                })
+
+                                return (
+                                  <div className="my-2 border-l-2 border-zinc-500 py-2  pl-2" key={idx}>
+                                    <Text>{replies.comment}</Text>
+
+                                    <div className="flex items-center gap-5 text-gray-400 text-xs">
+                                      <p className="text-yellow-300 text-base my-2 font-semibold">{replies.username}</p>
+                                      <p>{date}</p>
+                                    </div>
+                                  </div>
+                                )
+                              })
+                            }
+                          </div>
+                          <div className="ml-5">
+                            {
+                              showInputBox[val._id] &&
+                              <form onSubmit={(e) => replyCommentFormHandler(e, val._id)}>
+                                <input
+                                  required
+                                  value={replyCommentData}
+                                  onChange={replyInputHandle}
+                                  className='form-control mt-2'
+                                  placeholder={'Reply'}
+                                />
+                                <div className="flex gap-3">
+                                  <Button type='submit' className="mt-2">Submit Reply</Button>
+                                  <Button type='button' className="mt-2" onClick={() => hideInputField(val._id)}>Cancel</Button>
+                                </div>
+                              </form>
+                            }
+                          </div>
+                        </div >
+                      </>
+                    )
+                  })
+                }
+
                 <div className="flex flex-col gap-5">
                   <div className="h-px" />
                   <div className="flex flex-col items-start gap-5">
@@ -537,43 +699,80 @@ export default function Page({ data }) {
                       ipsum.
                     </Text>
                   </div>
+
+                  {/* User comment form  */}
+
                   <div className="flex flex-col items-start gap-6">
+
                     <div className="flex gap-6 self-stretch md:flex-col">
-                      <Input
-                        shape="square"
-                        type="text"
-                        name="Name Input"
-                        placeholder={`Your Name`}
-                        className="w-full border border-solid border-gray-800_01  bg-colors2  "
-                      />
-                      <Input
-                        shape="square"
-                        type="number"
-                        name="Contact Input"
-                        placeholder={`Your Contact Number`}
-                        className="w-full border border-solid border-gray-800_01 bg-colors2  "
-                      />
+
+                      <div className="flex flex-col gap-1 w-full">
+                        <input
+                          type="text"
+                          className="form-control"
+                          autoComplete="off"
+                          required
+                          name="username"
+                          placeholder="Name"
+                          onChange={inputChangeHandle}
+                          value={formData.username}
+                        />
+                        {
+                          formErrors.username &&
+                          <div className="">
+                            <p className="text-yellow-500 text-sm">{formErrors.username}</p>
+                          </div>
+                        }
+                      </div>
+
+                      <div className="w-full flex flex-col gap-1">
+                        <input
+                          type="email"
+                          autoComplete="off"
+                          required
+                          className="form-control"
+                          name="email"
+                          placeholder="Email"
+                          onChange={inputChangeHandle}
+                          value={formData.email}
+                        />
+                        {
+                          formErrors.email &&
+                          <div className="">
+                            <p className="text-yellow-500 text-sm">{formErrors.email}</p>
+                          </div>
+                        }
+                      </div>
+
                     </div>
-                    <Input
-                      shape="square"
-                      type="email"
-                      name="Email Input"
-                      placeholder={`Your Email`}
-                      className="self-stretch border border-solid border-gray-800_01  bg-colors2  "
-                    />
-                    <TextArea
-                      shape="square"
-                      name="Comment TextArea"
-                      placeholder={`Comment`}
-                      className="self-stretch !border-gray-800_01 text-colors"
-                    />
+
+                    <div className="w-full flex flex-col gap-1">
+                      <textarea
+                        name="commentbox"
+                        required
+                        onChange={inputChangeHandle}
+                        value={formData.commentbox}
+                        placeholder='Enter comment'
+                        className="form-control"
+                      ></textarea>
+                      {
+                        formErrors.commentbox &&
+                        <div className="">
+                          <p className="text-yellow-500 text-sm">{formErrors.commentbox}</p>
+                        </div>
+                      }
+                    </div>
+
                     <Button
+                      type='submit'
+                      onClick={submitHandle}
                       size="lg"
                       shape="square"
-                      className="min-w-[152px] font-bold text-colors2"
+                      className="min-w-[152px] font-bold text-yellow-400"
                     >
                       Post Comment
                     </Button>
+
                   </div>
                 </div>
               </div>
@@ -624,7 +823,7 @@ export default function Page({ data }) {
                                 onClick={() => handleSearch()}
                                 height={16}
                                 width={18}
-                                
+
                               />
                             ) : (
                               <Search
@@ -717,13 +916,16 @@ export default function Page({ data }) {
 
                   </div>
                 </div>
-               
+
               </div>
             </div>
           </div>
         </div>
+        <div>
+          <Toaster position="bottom-right" reverseOrder={false} />
+        </div>
       </div>
-    </div>
+    </div >
   );
 }
 

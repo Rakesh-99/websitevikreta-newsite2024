@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+   <div className="flex flex-col gap-2" key={idx}>
 
-## Getting Started
+                        <div className="flex  relative items-center md:flex-col">
+                          <div className="flex  flex-1 flex-wrap items-center gap-[21px] md:self-stretch">
+                            <Heading size="headingmd" as="h5">
+                              {val.username}
 
-First, run the development server:
+                              <Text size="texts" as="p" className="">
+                                {date}
+                              </Text>
+                            </Heading>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+                          </div>
+                          <div className="flex w-[42%] justify-center gap-2 self-end md:w-full md:self-auto">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+                             <div
+                              onClick={() => toggleInputBox(val._id)}
+                              className="flex  items-center cursor-pointer justify-end gap-[9px]">
+                              <ReplyAll
+                                width={18}
+                                height={20}
+                                alt="Question Icon"
+                                className="h-[20px]"
+                              />
+                              <Text size="texts" as="p" className="!text-colors1">
+                                Reply
+                              </Text>
+                            </div>
+                          </div>
+                        </div>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+                        <div className="flex flex-col gap-2">
+                          <Text as="p" className="leading-[22px]">
+                            {val.commentbox}
+                          </Text>
+                          {/* Reply-comment  */}
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+                          {
+                            val.commentReplies?.map((replyComment, idx) => {
+                              return (
+                                <div className="ml-3" key={idx}>
+                                  <h3 className="text-yellow-400 font-[500] text-lg">{replyComment.username}</h3>
+                                  <Text >{replyComment.comment}</Text>
+                                </div>
+                              )
+                            })
+                          }
+                        </div>
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+                        {/* Show input box if the reply is clicked */}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+                        {/* Reply comment  */}
+                        {
+                          showInputBox[val._id] &&
+                          <div className="ml-2">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+                            <form action="" onSubmit={(e) => replyCommentFormHandler(e, val._id)}>
+                              <Input
+                                required
+                                onChange={replyInputHandle}
+                                value={replyCommentData}
+                                type="text"
+                                name="replycomment"
+                                placeholder={`Reply`}
+                                className="w-96  px-2 py-2 rounded-sm "
+                              />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+                              <Button
+                                type='submit'
+                                size="lg"
+                                shape="square"
+                                className="min-w-[152px] mt-5 font-bold text-yellow-400"
+                              >
+                                Submit
+                              </Button>
+                            </form>
+
+                          </div>
+                        }
+
+                      </div>
