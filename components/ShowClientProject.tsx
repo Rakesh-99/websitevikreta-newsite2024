@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { urlFor } from "../sanity/sanity-urlFor";
 import Image from "next/image";
-import { Button } from "./Blogs/Tags";
+
+
 
 
 
@@ -59,13 +60,12 @@ const ShowClientProject = ({ response }: { response: any }) => {
                 <p>Image not available</p>
             )}
             {showPrototype && (
-                <a href={showPrototype} target="_blank" rel="noopener noreferrer">
-                    <Button className="mt-10">
+                <button className="border-yellow-500 font-medium flex gap-3 items-center border px-3 py-3 mt-8">
+                    <a href={showPrototype}>
                         View Prototype
-                    </Button>
-                </a>
-
-
+                    </a>
+                    <i className="bi bi-box-arrow-up-right"></i>
+                </button>
             )}
         </div>
     );
